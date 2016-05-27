@@ -1,0 +1,44 @@
+<a href="#/app/courts/create" class="court createBtn waves-effect waves-light btn green"><i class="material-icons left">add</i>Crear</a>
+<a href="#/app/courts/delete/{{seleccionado}}" class="court deleteBtn waves-effect waves-light btn red"><i class="material-icons left">delete</i>Eliminar</a>
+<a href="#/app/courts/modify/{{seleccionado}}" class="court modifyBtn waves-effect waves-light btn yellow"><i class="material-icons left">edit</i>Modificar</a>
+
+<div class="row">
+	<div id="admin" class="col s12">
+		<div class="card material-table">
+			<div class="table-header">
+				<span class="table-title">Pistas del sistema</span>
+				<div class="actions">
+					<button ng-click="reverse()" class="waves-effect btn-flat nopadding"><i class="material-icons">import_export</i></button>
+				</div>
+			</div>
+			<table id="datatable">
+				<thead>
+				<tr>
+					<th ng-click="order('id')">Número</th>
+					<th ng-click="order('material')">Material</th>
+					<th ng-click="order('color')">Color</th>
+					<th ng-click="order('enabled')">Enabled</th>
+				</tr>
+				</thead>
+				<tbody ng-show="courts.length > 0">
+				<tr ordenable seleccionable-tr id="{{court.id}}" ng-repeat="court in courts | orderBy:predicate:rever">
+					<td >{{court.id}}</td>
+					<td >{{court.material}}</td>
+					<td >{{court.color}}</td>
+					<td >{{court.enabled}}</td>
+				</tr>
+				</tbody>
+				<tbody ng-show="!courts.length > 0">
+				<tr ng-show="courts == undefined">
+					<div ng-show="courts == undefined" class="progress">
+						<div class="indeterminate"></div>
+					</div>
+				</tr>
+				<tr ng-show="courts != undefined">
+					<td colspan="4" class="center-align">No hay pistas que visualizar.</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

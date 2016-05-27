@@ -1,0 +1,46 @@
+<a href="#/app/reservas/create" class="reserva createBtn waves-effect waves-light btn green"><i class="material-icons left">add</i>Crear</a>
+<a href="#/app/reservas/delete/{{seleccionado}}" class="reserva deleteBtn waves-effect waves-light btn red"><i class="material-icons left">delete</i>Eliminar</a>
+<a href="#/app/reservas/modify/{{seleccionado}}" class="reserva modifyBtn waves-effect waves-light btn yellow"><i class="material-icons left">edit</i>Modificar</a>
+
+<div class="row">
+	<div id="admin" class="col s12">
+		<div class="card material-table">
+			<div class="table-header">
+				<span class="table-title">Reservas del sistema</span>
+				<div class="actions">
+					<button ng-click="reverse()" class="waves-effect btn-flat nopadding"><i class="material-icons">import_export</i></button>
+				</div>
+			</div>
+			<table id="datatable">
+				<thead>
+					<tr>
+						<th ng-click="order('id')">Número</th>
+						<th ng-click="order('userId')">Usuario</th>
+						<th ng-click="order('courtId')">Pista</th>
+						<th ng-click="order('fecha')">Fecha</th>
+						<th ng-click="order('franja')">Franja</th>
+					</tr>
+				</thead>
+				<tbody ng-show="reservas.length > 0">
+					<tr ordenable seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever">
+						<td >{{reserva.id}}</td>
+						<td >{{reserva.userId}}</td>
+						<td >{{reserva.courtId}}</td>
+						<td >{{reserva.fecha}}</td>
+						<td >{{reserva.franja}}</td>
+					</tr>
+				</tbody>
+				<tbody ng-show="!reservas.length > 0">
+					<tr ng-show="reservas == undefined">
+						<div ng-show="reservas == undefined" class="progress">
+							<div class="indeterminate"></div>
+						</div>
+					</tr>
+					<tr ng-show="reservas != undefined">
+						<td colspan="5" class="center-align">No hay reservas que visualizar</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

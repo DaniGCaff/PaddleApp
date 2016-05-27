@@ -1,0 +1,37 @@
+<script>
+	 $('.datepicker').pickadate({
+		selectMonths: false, // Creates a dropdown to control month
+		selectYears: 1, // Creates a dropdown of 15 years to control year
+		today: "Hoy",
+		clear: "Limpiar",
+		close: "Cerrar",
+		formatSubmit: 'yyyy-mm-dd'
+	  });
+</script>
+
+<div class="row">
+    <div class="col s4" ng-controller="PlayerController">
+        <lista-players></lista-players>
+    </div>
+
+    <div class="col s7 offset-s1">
+        <div class="row">
+            <button class="btn">Guardar</button>
+            <button class="btn">Cancelar</button>
+            <button class="green accent-4 btn">Confirmar y pagar</button>
+        </div>
+		<div class="card grey lighten-5 row center">
+			<div class="input-field col s3 offset-s2">
+				<input type="number" id="franjaHoraria" placeholder="Franja horaria" min="8" max="20" ng-model="reserva.franjaHoraria" required>
+				<label class="active" for="franjaHoraria">Franja horaria</label>
+			</div>
+			<div class="input-field col s5">
+				<input type="date" id="fecha" placeholder="Fecha de la reserva" ng-model="reserva.fecha" class="datepicker" required>
+				<label class="active" for="fecha">Fecha de la reserva</label>
+			</div>
+		</div>
+        <div class="row center-align" ng-controller="CourtController">
+            <lista-pistas></lista-pistas>
+        </div>
+    </div>
+</div>

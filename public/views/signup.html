@@ -1,0 +1,31 @@
+<h4>Sign-up</h4>
+<div class="row">
+  <div class="input-field col s12">
+       <input placeholder="Username" id="register-username" type="text" class="validate">
+       <label for="username">Username</label>
+  </div>
+  
+  <div class="input-field col s12">
+       <input placeholder="Password" id="register-password" type="password" class="validate">
+       <label for="password">Password</label>
+  </div>
+  
+  <div class="input-field col s12">
+       <input placeholder="Nombre" id="register-name" type="text" class="validate">
+       <label for="username">Nombre</label>
+  </div>
+  
+  <div class="input-field col s6">
+  	  <a ng-hide="gitHubUsername != null" href="/login/github"><button class="btn" id="gitHub">Iniciar sesión con GitHub</button></a>
+      <p ng-show="gitHubUsername != null" >GitHub username: <span ng-bind="gitHubUsername"></span></p>
+  </div>
+  
+  <div class="input-field col s6">
+  	  <button ng-hide="trelloUsername != null" ng-click="loginIntoTrello()" class="btn" id="trello">Iniciar sesión con Trello</button>
+      <p ng-show="trelloUsername != null" >Trello username: <span ng-bind="trelloUsername"></span></p>
+  </div>
+  
+  <div class="input-field col s12">
+  	  <button ng-show="trelloUsername != null && gitHubUsername != null" ng-click="commit()" class="btn">Registrarse en Software Planner</button>
+  </div>
+</div>

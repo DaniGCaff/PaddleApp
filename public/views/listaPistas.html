@@ -1,0 +1,11 @@
+<div class="col s5 offset-s1 paddle-court-table" ng-repeat="(index, court) in courts">
+    <h3 ng-style="court.statusColor">Court {{index + 1}}</h3>
+    <div class="row center">
+        <div class="col s6 {{court.color}} lighten-2 paddle-court-cell valign-wrapper"
+             ng-repeat="(indexP, player) in court.players">
+            <p ng-show="!player.id" class="valign center-block">{{indexP + 1}}</p>
+            <p ng-show="player.id" class="valign center-block material-icons">perm_identity</p>
+            {{player.name}}
+        </div>
+    </div>
+</div>

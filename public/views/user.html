@@ -1,0 +1,50 @@
+<div class="row">
+    <form class="col s12">
+  <div ng-show="operacion === 'create'" class="input-field col s6">
+      <input placeholder="Username" ng-model="user.username" id="username" type="text" class="validate" required="">
+      <label class="active" data-error="Inválido" data-success="Correcto" for="username">Username</label>
+  </div>
+  <div ng-show="operacion === 'modify'" class="input-field col s6">
+	   <input placeholder="Username" ng-model="user.username" type="text" disabled id="usernam" type="text">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="username">Username</label>
+  </div>
+  
+  <div class="input-field col s6">
+       <input placeholder="Password" ng-model="user.password" id="password" type="password" class="validate" required="">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="password">Password</label>
+  </div>
+  
+  <div class="input-field col s6">
+       <input placeholder="Nombre" ng-model="user.name" id="name" type="text" class="validate" required="">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="name">Nombre</label>
+  </div>
+  
+  <div class="input-field col s6">
+       <input placeholder="Apellidos" ng-model="user.surname" id="surname" type="text" class="validate" required="">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="surname">Apellidos</label>
+  </div>
+  
+  <div class="input-field col s6">
+       <input placeholder="Teléfono" ng-model="user.phone" id="phone" type="tel" class="validate" required="" pattern="\d{3}(?:[\-]?)\d{3}(?:[\-]?)\d{3}">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="phone">Teléfono</label>
+  </div>
+  
+  <div class="input-field col s6">
+       <input placeholder="E-mail" ng-model="user.email" id="email" type="email" class="validate" required="">
+       <label class="active" data-error="Inválido" data-success="Correcto" for="email">E-mail</label>
+  </div>
+  
+  <div ng-show="AppAuth.roles.indexOf('ROLE_ADMIN') > -1" class="input-field col s12">
+    <p>
+      <input type="checkbox" ng-model="user.enabled" id="enabled" />
+      <label for="enabled">Enabled</label>
+    </p>
+  </div>
+  
+  <div class="center-align">
+      <a onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</a>
+      <a ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</a>
+      <a ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</a>
+  </div>
+  </form>
+</div>

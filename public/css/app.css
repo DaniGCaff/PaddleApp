@@ -1,0 +1,16 @@
+.paddle-court-cell {
+	height: 5%;
+	border: 1px black dotted;
+}
+
+.paddle-court-cell:nth-child(odd) {
+	border-right: 1px black solid;
+}
+
+.paddle-court-cell:nth-child(even) {
+	border-left: 1px black solid;
+}
+
+a.disabled {
+	pointer-events: none;
+}

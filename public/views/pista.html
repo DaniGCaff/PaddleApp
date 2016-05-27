@@ -1,0 +1,38 @@
+<script>
+    $('select').material_select();
+</script>
+<br/><br/>
+<form class="col s12">
+    <div class="row">
+      <div ng-show="operacion == 'modify'" class="input-field col s12">
+           <input placeholder="Pista id" ng-model="court.id" disabled id="courtId" type="text" class="validate" />
+           <label class="active" for="courtId">Court Id</label>
+      </div>
+
+    <div class="input-field col s12">
+      <select ng-model="court.material" id="courtMaterial">
+          <option value="" disabled selected>Elige una opción</option>
+          <option id="HORMIGON" value="HORMIGON">Hormigón</option>
+          <option id="CESPED" value="CESPED">Cesped artificial</option>
+          <option id="MOQUETA" value="MOQUETA">Moqueta</option>
+      </select>
+      <label for="courtMaterial">Material</label>
+    </div>
+
+    <div class="input-field col s12">
+      <select ng-model="court.color" id="courtColor">
+          <option value="" disabled selected>Elige una opción</option>
+          <option id="GREEN" value="GREEN">Verde</option>
+          <option id="BLUE" value="BLUE">Azul</option>
+          <option id="BROWN" value="BROWN">Marrón</option>
+      </select>
+      <label for="courtColor">Color</label>
+    </div>
+
+    <center>
+        <a onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</a>
+        <a ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</a>
+        <a ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</a>
+    </center>
+    </div>
+</form>

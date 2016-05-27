@@ -1,0 +1,47 @@
+<!DOCTYPE html/>
+<html ng-app="paddleApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>Paddle App :: TDW - Daniel García Cafferata</title>
+		
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="css/app.css"  media="screen,projection"/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		
+		<script type="text/javascript" src="js/dependencies/jquery.min.js"></script>
+		<script type="text/javascript" src="js/dependencies/materialize.min.js"></script>
+		<script type="text/javascript" src="js/dependencies/angular.min.js"></script>
+		<script type="text/javascript" src="js/dependencies/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/dependencies/angular-cookies.min.js"></script>			
+		<script type="text/javascript" src="js/app/app.js"></script>
+		<script type="text/javascript" src="js/app/UserController.js"></script>
+		<script type="text/javascript" src="js/app/CourtController.js"></script>
+		<script type="text/javascript" src="js/app/PaddleService.js"></script>
+		<script type="text/javascript" src="js/app/ReservaController.js"></script>
+		<script type="text/javascript" src="js/app/PlayerController.js"></script>
+	</head>
+	
+	<body>
+	
+		<header ng-controller="SessionController">
+			  <nav>
+				<div class="nav-wrapper green accent-4">
+				  <a href="#/app/home" class="brand-logo center">Paddle App</a>
+				  <ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="#/app/home">Inicio</a></li>
+					<li ng-show="AppAuth.status && AppAuth.roles.indexOf('ROLE_USER') != -1"><a href="#/app/reservas/create">Reservas</a></li>
+					<li ng-show="AppAuth.status && AppAuth.roles.indexOf('ROLE_ADMIN') != -1"><a href="#/app/admin">Administración</a></li>
+					<li ng-show="AppAuth.status"><a ng-click="logout()">Cerrar sesión [{{AppAuth.username}}]</a></li>
+				  </ul>
+				</div>
+			  </nav>
+		</header>
+		<br/><br/>
+		<div class="container" ng-view>
+		</div>
+	</body>
+</html>
