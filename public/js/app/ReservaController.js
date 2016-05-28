@@ -6,22 +6,6 @@ angular.module('appControllers')
         $scope.reservaId = $routeParams.reservaId;
         $scope.reserva = {};
 
-        if(new Date().getMonth()+1 < 10)
-            var mes = "0" + (new Date().getMonth()+1);
-
-        if((new Date()).getHours() > 20) {
-            $scope.reserva.franja = 8;
-            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
-        } else if((new Date()).getHours() < 8) {
-            $scope.reserva.franja = 8;
-            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
-        } else {
-            $scope.reserva.franja = new Date().getHours();
-            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
-        }
-
-        PaddleService.updateReserva($scope.reserva);
-
 		if($scope.operacion == 'modify') {
 			var config = {headers: {'X-Auth-Token': AppAuth.token}};
 			$http.get('/reservas/' + $scope.reservaId, config)
@@ -63,14 +47,6 @@ angular.module('appControllers')
                     alert(warning.data);
                 });
         };
-
-        $scope.$watch('reserva.fecha', function(newValue, oldValue) {
-            PaddleService.updateReserva($scope.reserva);
-        });
-
-        $scope.$watch('reserva.franja', function(newValue, oldValue) {
-            PaddleService.updateReserva($scope.reserva);
-        });
 
         $scope.$on('selected_event', function(event, data) {
             $scope.$broadcast('notify_selection', 1);
@@ -118,6 +94,39 @@ angular.module('appControllers')
                         }, function(warning) {
                             $scope.reservas = [];
                         });
+                });
+            }
+        }
+    })
+    .directive('toolbarReserva', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '../../views/toolbarReserva.html',
+            controller: function($scope, $http, AppAuth, PaddleService) {
+
+                $scope.updateReserva = function() {
+                    PaddleService.updateReserva($scope.reserva);
+                }
+
+                if(new Date().getMonth()+1 < 10)
+                    var mes = "0" + (new Date().getMonth()+1);
+
+                if((new Date()).getHours() > 20) {
+                    $scope.reserva.franja = 8;
+                    $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+                } else if((new Date()).getHours() < 8) {
+                    $scope.reserva.franja = 8;
+                    $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+                } else {
+                    $scope.reserva.franja = new Date().getHours();
+                    $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+                }
+
+                $scope.updateReserva();
+            },
+            link: function($scope, $elem, $attr) {
+                $scope.$watchGroup(['reserva.franja', 'reserva.fecha'], function(newValues, oldValues, scope) {
+                    scope.updateReserva();
                 });
             }
         }
