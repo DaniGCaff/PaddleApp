@@ -121,4 +121,22 @@ angular.module('appControllers')
 				})
 			}
 		}
+	})
+	.directive('commonView', function() {
+		return {
+			scope: { modifyFunction: '&' },
+			controller: function($scope) {
+				$scope.returnedControl = function() {
+					$(".btn").removeAttr("disabled");
+				};
+			},
+			link: function(scope, element, attrs) {
+				$(".btn").attr("disabled","disabled");
+				scope.modifyFunction({callback: scope.returnedControl});
+
+				$(".btn").on('click', function() {
+					$(".btn").attr("disabled","disabled");
+				});
+			}
+		}
 	});

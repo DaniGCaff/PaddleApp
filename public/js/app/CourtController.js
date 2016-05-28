@@ -5,15 +5,30 @@ angular.module('appControllers')
         $scope.operacion = $routeParams.operacion;
         $scope.courtId = $routeParams.courtId;
 		$scope.court = {};
+        $scope.callback = function() {};
 
-		if($scope.operacion == 'modify') {
-			var config = {headers: {'X-Auth-Token': AppAuth.token}};
-			$http.get('/courts/' + $scope.courtId, config)
-			.then(function(court) {
-				$scope.court = court.data;
-                $scope.court.color = $scope.court.color.toLowerCase();
-			}, function() {});
-		}
+        $scope.injectCallback = function(callback) {
+            $scope.callback = callback;
+            if ($scope.operacion == 'modify') {
+                $scope.modifyView();
+            } else {
+                $scope.callback();
+            }
+        }
+        
+        $scope.modifyView = function() {
+            if($scope.operacion === 'modify') {
+                var config = {headers: {'X-Auth-Token': AppAuth.token}};
+                $http.get('/courts/' + $scope.courtId, config)
+                    .then(function(court) {
+                        $scope.court = court.data;
+                        $scope.court.color = $scope.court.color.toLowerCase();
+                        $scope.callback();
+                    }, function() {
+
+                    });
+            }
+        };
 
         $scope.create = function() {
             var data = {material:$("#courtMaterial").val(), color:$("#courtColor").val()};
@@ -23,27 +38,30 @@ angular.module('appControllers')
                     $location.path("/app/admin");
                 }, function(warning) {
                     alert(warning.data);
+                    $scope.callback();
                 });
         };
 
         $scope.update = function() {
             var data = {material:$("#courtMaterial").val(), color:$("#courtColor").val()};
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
-            $http.put("/courts/" + $scope.seleccionado, data, config)
+            $http.put("/courts/" + $scope.courtId, data, config)
                 .then(function(resp) {
                     $location.path("/app/admin");
                 }, function(warning) {
                     alert(warning.data);
+                    $scope.callback();
                 });
         };
 
         $scope.delete = function() {
             var config = {headers: {'X-Auth-Token': AppAuth.token}};
-            $http.delete("/courts/" + $scope.seleccionado, config)
+            $http.delete("/courts/" + $scope.courtId, config)
                 .then(function(resp) {
                     $location.path("/app/admin");
                 }, function(warning) {
                     alert(warning.data);
+                    $scope.callback();
                 });
         };
 
@@ -52,8 +70,10 @@ angular.module('appControllers')
         });
 
         $scope.$watch('court', function(newValue, oldValue) {
-            $scope.materialAnterior = $scope.court.material;
-            $scope.colorAnterior = $scope.court.color;
+            if($scope.court.material != null && $scope.court.color != null) {
+                $scope.materialAnterior = $scope.court.material.toLowerCase();
+                $scope.colorAnterior = $scope.court.color.toLowerCase();
+            }
         });
     })
     .directive('crudePistas', function($http, AppAuth) {

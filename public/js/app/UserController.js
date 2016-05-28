@@ -5,13 +5,28 @@ angular.module('appControllers')
 	$scope.operacion = $routeParams.operacion;
 	$scope.userId = $routeParams.userId;
 	$scope.user = {};
-	
-	if($scope.operacion == 'modify') {
-		var config = {headers: {'X-Auth-Token': AppAuth.token}};
-		$http.get('/users/' + $scope.userId, config)
-		.then(function(user) {
-			$scope.user = user.data;
-		}, function() {});
+	$scope.callback = function() {};
+
+	$scope.injectCallback = function(callback) {
+		$scope.callback = callback;
+		if ($scope.operacion == 'modify') {
+			$scope.modifyView(callback);
+		} else {
+			$scope.callback();
+		}
+	}
+
+	$scope.modifyView = function(callback) {
+		this.callback = callback;
+		if ($scope.operacion == 'modify') {
+			var config = {headers: {'X-Auth-Token': AppAuth.token}};
+			$http.get('/users/' + $scope.userId, config)
+				.then(function (user) {
+					$scope.user = user.data;
+					$scope.callback();
+				}, function () {
+				});
+		}
 	}
 	
     $scope.login = function() {
@@ -22,8 +37,8 @@ angular.module('appControllers')
 			$cookies.putObject("AppAuth", AppAuth);
 			$location.path("/app/home");
     	}, function (resp) {
-			console.log(resp.data);
 			alert(resp.data);
+			$scope.callback();
     	});
     }
 	
@@ -34,6 +49,7 @@ angular.module('appControllers')
 			window.history.back();
     	}, function(warning) {
     		alert(warning.data);
+			$scope.callback();
     	});
     }
 	
@@ -44,6 +60,7 @@ angular.module('appControllers')
 			window.history.back();
     	}, function(warning) {
     		alert(warning.data);
+			$scope.callback();
     	});
 	}
 
@@ -54,6 +71,7 @@ angular.module('appControllers')
 				window.history.back();
 			}, function(warning) {
 				alert(warning.data);
+				$scope.callback();
 			});
 	}
 	

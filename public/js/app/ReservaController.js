@@ -106,6 +106,7 @@ angular.module('appControllers')
 
                 $scope.updateReserva = function() {
                     $('.btn').attr("disabled","disabled");
+                    $('input').attr("disabled","disabled");
                     PaddleService.updateReserva($scope.reserva);
                 }
 
@@ -132,6 +133,7 @@ angular.module('appControllers')
 
                 $scope.$on('reserva:init', function(evento, data) {
                     $('.btn').removeAttr("disabled");
+                    $('input').removeAttr("disabled");
                 });
             }
         }

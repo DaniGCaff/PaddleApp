@@ -1,5 +1,5 @@
 <div class="row">
-    <form class="col s12">
+    <form common-view modify-function="injectCallback(callback)" class="col s12">
     <section ng-hide="operacion != 'modify' && operacion != 'create'">
           <div ng-show="operacion === 'create'" class="input-field col s6">
               <input placeholder="Username" ng-model="user.username" id="username" type="text" class="validate" required="">
@@ -35,7 +35,7 @@
                <label class="active" data-error="Inválido" data-success="Correcto" for="email">E-mail</label>
           </div>
 
-          <div ng-show="AppAuth.roles.indexOf('ROLE_ADMIN') > -1" class="input-field col s12">
+          <div ng-show="operacion == 'modify' && AppAuth.roles.indexOf('ROLE_ADMIN') > -1" class="input-field col s12">
             <p>
               <input type="checkbox" ng-model="user.enabled" id="enabled" />
               <label for="enabled">Enabled</label>
@@ -48,10 +48,10 @@
     </section>
   
   <div class="center-align">
-      <a onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</a>
-      <a ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</a>
-      <a ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</a>
-      <a ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</a>
+      <button onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</button>
+      <button ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</button>
+      <button ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</button>
+      <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</button>
   </div>
   </form>
 </div>

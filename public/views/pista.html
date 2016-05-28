@@ -2,7 +2,7 @@
     $('select').material_select();
 </script>
 <br/><br/>
-<form class="col s12">
+<form common-view modify-function="injectCallback(callback)" class="col s12">
     <div class="row">
     <section ng-hide="operacion != 'modify' && operacion != 'create'">
           <div ng-show="operacion == 'modify'" class="input-field col s12">
@@ -36,10 +36,10 @@
     </section>
 
     <center>
-        <a onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</a>
-        <a ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</a>
-        <a ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</a>
-        <a ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</a>
+        <button onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</button>
+        <button ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</button>
+        <button ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</button>
+        <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</button>
     </center>
     </div>
 </form>
