@@ -90,7 +90,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 	}
 });
 
-angular.module('appControllers', ['ngCookies', 'ui.materialize']);
+angular.module('appControllers', ['ngCookies']);
 
 angular.module('appControllers')
 	.directive('ordenable', function($http, AppAuth) {
