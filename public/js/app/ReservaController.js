@@ -42,17 +42,27 @@ angular.module('appControllers')
                 }, function(warning) {
                     alert(warning.data);
                 });
-        }
+        };
 
         $scope.update = function() {
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
-            $http.put("/reservas/" + seleccionado, $scope.reserva, config)
+            $http.put("/reservas/" + $scope.seleccionado, $scope.reserva, config)
                 .then(function(resp) {
                     $location.path("/#/app/admin");
                 }, function(warning) {
                     alert(warning.data);
                 });
-        }
+        };
+
+        $scope.delete = function() {
+            var config = {headers: {'X-Auth-Token': AppAuth.token}};
+            $http.delete("/reservas/" + $scope.seleccionado, config)
+                .then(function(resp) {
+                    window.history.back();
+                }, function(warning) {
+                    alert(warning.data);
+                });
+        };
 
         $scope.$watch('reserva.fecha', function(newValue, oldValue) {
             PaddleService.updateReserva($scope.reserva);
@@ -84,8 +94,8 @@ angular.module('appControllers')
             },
             link: function ($scope, $elem, $attr) {
                 $scope.$on('notify_selection', function(event, data) {
-                    $(".modifyBtn").filter(".court").removeClass('disabled');
-                    $(".deleteBtn").filter(".court").removeClass('disabled');
+                    $(".modifyBtn").filter(".reserva").removeClass('disabled');
+                    $(".deleteBtn").filter(".reserva").removeClass('disabled');
                 });
             }
         }
@@ -95,17 +105,20 @@ angular.module('appControllers')
             restrict: 'E',
             templateUrl: '../../views/crudeReservas.html',
             controller: function ($scope, $http, AppAuth) {
-                var config = {headers: {'X-Auth-Token': AppAuth.token}}
-
-                $http.get("/reservas/user/"+AppAuth.id, config)
-                    .then(function(resp) {
-                        $scope.reservas = resp.data.reservas;
-                    }, function(warning) {
-                        $scope.reservas = [];
-                    });
                 $(".createBtn").filter(".reserva").hide();
                 $(".modifyBtn").filter(".reserva").hide();
                 $(".deleteBtn").filter(".reserva").hide();
+            },
+            link: function($scope, $elem, $attr) {
+                $scope.$on('token:asigned', function(event, data) {
+                    var config = {headers: {'X-Auth-Token': AppAuth.token}}
+                    $http.get("/reservas/user/"+AppAuth.id, config)
+                        .then(function(resp) {
+                            $scope.reservas = resp.data.reservas;
+                        }, function(warning) {
+                            $scope.reservas = [];
+                        });
+                });
             }
         }
     });

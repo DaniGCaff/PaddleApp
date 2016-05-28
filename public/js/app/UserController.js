@@ -39,12 +39,22 @@ angular.module('appControllers')
 	
 	$scope.update = function() {
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
-		$http.put("/users/" + seleccionado, $scope.user, config)
+		$http.put("/users/" + $scope.seleccionado, $scope.user, config)
     	.then(function(resp) {
 			window.history.back();
     	}, function(warning) {
     		alert(warning.data);
     	});
+	}
+
+	$scope.delete = function() {
+		var config = {headers: {'X-Auth-Token': AppAuth.token}};
+		$http.delete("/users/" + $scope.seleccionado, config)
+			.then(function(resp) {
+				window.history.back();
+			}, function(warning) {
+				alert(warning.data);
+			});
 	}
 	
 	$scope.$on('selected_event', function(event, data) {

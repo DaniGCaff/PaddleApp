@@ -4,35 +4,42 @@
 <br/><br/>
 <form class="col s12">
     <div class="row">
-      <div ng-show="operacion == 'modify'" class="input-field col s12">
-           <input placeholder="Pista id" ng-model="court.id" disabled id="courtId" type="text" class="validate" />
-           <label class="active" for="courtId">Court Id</label>
-      </div>
+    <section ng-hide="operacion != 'modify' && operacion != 'create'">
+          <div ng-show="operacion == 'modify'" class="input-field col s12">
+               <input placeholder="Pista id" ng-model="court.id" disabled id="courtId" type="text" class="validate" />
+               <label class="active" for="courtId">Court Id</label>
+          </div>
 
-    <div class="input-field col s12">
-      <select ng-model="court.material" id="courtMaterial">
-          <option value="" disabled selected>Elige una opción</option>
-          <option id="HORMIGON" value="HORMIGON">Hormigón</option>
-          <option id="CESPED" value="CESPED">Cesped artificial</option>
-          <option id="MOQUETA" value="MOQUETA">Moqueta</option>
-      </select>
-      <label for="courtMaterial">Material</label>
-    </div>
+        <div class="input-field col s12">
+          <select ng-model="court.material" id="courtMaterial" ng-init="materialAnterior">
+              <option value="" disabled selected>Elige una opción</option>
+              <option id="HORMIGON" value="HORMIGON">Hormigón</option>
+              <option id="CESPED" value="CESPED">Cesped artificial</option>
+              <option id="MOQUETA" value="MOQUETA">Moqueta</option>
+          </select>
+          <label for="courtMaterial">Material <span ng-show="operacion == 'modify'" >(anterior: {{materialAnterior}})</span></label>
+        </div>
 
-    <div class="input-field col s12">
-      <select ng-model="court.color" id="courtColor">
-          <option value="" disabled selected>Elige una opción</option>
-          <option id="GREEN" value="GREEN">Verde</option>
-          <option id="BLUE" value="BLUE">Azul</option>
-          <option id="BROWN" value="BROWN">Marrón</option>
-      </select>
-      <label for="courtColor">Color</label>
-    </div>
+        <div class="input-field col s12" ng-init="colorAnterior">
+          <select ng-model="court.color" id="courtColor">
+              <option value="" disabled selected>Elige una opción</option>
+              <option id="GREEN" value="GREEN">Verde</option>
+              <option id="BLUE" value="BLUE">Azul</option>
+              <option id="BROWN" value="BROWN">Marrón</option>
+          </select>
+          <label for="courtColor">Color <span ng-show="operacion == 'modify'" >(anterior: {{colorAnterior}})</span></label>
+        </div>
+    </section>
+    <section ng-show="operacion != 'modify' && operacion != 'create'">
+        <p class="center-align">¿Está seguro de que quiere eliminar la pista #{{courtId}}?<br/>
+        No habrá modo de recuperar los datos después de efectuarse la operación.</p><br/><br/>
+    </section>
 
     <center>
         <a onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</a>
         <a ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</a>
         <a ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</a>
+        <a ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</a>
     </center>
     </div>
 </form>

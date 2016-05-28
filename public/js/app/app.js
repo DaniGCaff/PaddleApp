@@ -39,9 +39,13 @@ paddleApp.config(['$routeProvider', '$httpProvider',
   }
 ]);
 
-paddleApp.factory('AppAuth', function() {
+paddleApp.factory('AppAuth', function($rootScope) {
 	var authenticated = {status: false, username: "", roles: [], token: ""};
-	
+
+	authenticated.tokenAsigned = function() {
+		$rootScope.$broadcast('token:asigned', authenticated.token);
+	};
+
 	return authenticated;
 });
 
@@ -69,9 +73,10 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 			AppAuth.id = resp.data.id;
 			AppAuth.username = resp.data.username;
 			AppAuth.roles = resp.data.roles;
-			$cookies.putObject("AppAuth", AppAuth);
+			AppAuth.tokenAsigned();
 		}, function() {
 			AppAuth.status = false;
+			AppAuth.tokenAsigned();
 		});
 	} else {
 		if($cookies.getObject("AppAuth") != null) {
@@ -80,11 +85,12 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 			AppAuth.roles = galleta.roles;
 			AppAuth.token = galleta.token;
 			AppAuth.status = galleta.status;
+			AppAuth.tokenAsigned();
 		}
 	}
-}); 
+});
 
-angular.module('appControllers', ['ngCookies']);
+angular.module('appControllers', ['ngCookies', 'ui.materialize']);
 
 angular.module('appControllers')
 	.directive('ordenable', function($http, AppAuth) {

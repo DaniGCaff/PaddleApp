@@ -49,15 +49,17 @@
 	  <span class="card-title">¡Bienvenido, {{AppAuth.username}}!</span>
 	</div>
 	<div class="card-content">
-	  <p>Este es tu página principal. Puedes acceder a todos tus datos para consultarlos y modificarlos. También puedes ver el listado de reservas que has realizado últimamente.</p>
+	  <p>Esta es tu página principal. Puedes acceder a todos tus datos para consultarlos y modificarlos. También puedes ver el listado de reservas que has realizado últimamente.</p>
 	</div>
 	<div class="card-action">
 	  <a href="#/app/users/modify/{{AppAuth.id}}">Editar mis datos</a>
 	</div>
   </div>
 
-	<div ng-controller="ReservaController">
+	<section ng-controller="ReservaController">
+		<link rel="stylesheet" href="../css/datatable.css">
+		<script src="../js/dependencies/datatable.js"></script>
 		<crude-misreservas></crude-misreservas>
-	</div>
+	</section>
 </div>
 </div>

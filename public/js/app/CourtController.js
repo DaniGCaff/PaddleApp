@@ -11,8 +11,6 @@ angular.module('appControllers')
 			$http.get('/courts/' + $scope.courtId, config)
 			.then(function(court) {
 				$scope.court = court.data;
-				$("courtMaterial").val(String(court.material)).change();
-				$("courtColor").val(court.color);
 			}, function() {});
 		}
 
@@ -21,25 +19,40 @@ angular.module('appControllers')
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
             $http.post("/courts", data, config)
                 .then(function(resp) {
-                    $location.path("/#/app/admin");
+                    $location.path("/app/admin");
                 }, function(warning) {
                     alert(warning.data);
                 });
-        }
+        };
 
         $scope.update = function() {
             var data = {material:$("#courtMaterial").val(), color:$("#courtColor").val()};
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
-            $http.put("/courts/" + seleccionado, data, config)
+            $http.put("/courts/" + $scope.seleccionado, data, config)
                 .then(function(resp) {
-                    $location.path("/#/app/admin");
+                    $location.path("/app/admin");
                 }, function(warning) {
                     alert(warning.data);
                 });
-        }
+        };
+
+        $scope.delete = function() {
+            var config = {headers: {'X-Auth-Token': AppAuth.token}};
+            $http.delete("/courts/" + $scope.seleccionado, config)
+                .then(function(resp) {
+                    $location.path("/app/admin");
+                }, function(warning) {
+                    alert(warning.data);
+                });
+        };
 
         $scope.$on('selected_event', function(event, data) {
             $scope.$broadcast('notify_selection', 1);
+        });
+
+        $scope.$watch('court', function(newValue, oldValue) {
+            $scope.materialAnterior = $scope.court.material;
+            $scope.colorAnterior = $scope.court.color;
         });
     })
     .directive('crudePistas', function($http, AppAuth) {
@@ -95,6 +108,7 @@ angular.module('appControllers')
             $scope.loadCourts();
         },
         link: function($scope, $elem, $attr) {
+
             $scope.$on('reserva:updated', function(event, data) {
                 $scope.loadCourts();
             });
