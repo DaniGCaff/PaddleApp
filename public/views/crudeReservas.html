@@ -24,7 +24,7 @@
 				<tbody ng-show="reservas.length > 0">
 					<tr ordenable seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever">
 						<td >{{reserva.id}}</td>
-						<td >{{reserva.userId}}</td>
+						<td >{{reserva.nombreUsuario}}</td>
 						<td >{{reserva.courtId}}</td>
 						<td >{{reserva.fecha}}</td>
 						<td >{{reserva.franja}}</td>

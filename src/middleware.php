@@ -11,7 +11,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
     "secret" => "supersecreto",
     "rules" => [
         new \Slim\Middleware\JwtAuthentication\RequestPathRule([
-            "path" => ["/users", "/courts"],
+            "path" => ["/users", "/courts", "/reservas"],
             "passthrough" => ["/users/login"]
         ]),
         new \Slim\Middleware\JwtAuthentication\RequestMethodRule([

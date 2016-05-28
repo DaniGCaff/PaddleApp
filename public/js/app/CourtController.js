@@ -1,5 +1,5 @@
 angular.module('appControllers')
-    .controller('CourtController', function($http, $location, $scope, AppAuth, $cookies, $routeParams) {
+    .controller('CourtController', function($http, $location, $scope, AppAuth, $cookies, $routeParams, PaddleService) {
         $scope.AppAuth = AppAuth;
         $scope.seleccionado;
         $scope.operacion = $routeParams.operacion;
@@ -72,22 +72,35 @@ angular.module('appControllers')
         templateUrl: '../../views/listaPistas.html',
         controller: function($scope, $http, AppAuth, PaddleService) {
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
-            $http.get("/courts", config)
-            .then(function(resp) {
-                $scope.courts = resp.data.courts;
-                for(var i = 0; i < $scope.courts.length; i++) {
-                    $scope.courts[i].players = new Array(4);
-                    $scope.courts[i].countPlayers = 0;
-                    $scope.courts[i].statusColor = {color: "green"};
-                    for(var j = 0; j < 4; j++) {
-                        $scope.courts[i].players[j] = new Object();
-                        $scope.courts[i].players[j].name = '';
-                        $scope.courts[i].players[j].id = 0;
-                    }
-                }
-                PaddleService.courts = $scope.courts;
-            }, function(warning) {
-                $scope.courts = [];
+            $scope.loadCourts = function () {
+                $http.get("/courts/fecha/" + PaddleService.reserva.fecha + "/franja/" + PaddleService.reserva.franja, config)
+                    .then(function (resp) {
+                        $scope.courts = resp.data.courts;
+                        for(var i = 0; i < $scope.courts.length; i++) {
+                            $scope.courts[i].players = new Array(4);
+                            $scope.courts[i].countPlayers = 0;
+                            $scope.courts[i].statusColor = {color: "green"};
+                            for(var j = 0; j < 4; j++) {
+                                $scope.courts[i].players[j] = new Object();
+                                $scope.courts[i].players[j].name = '';
+                                $scope.courts[i].players[j].id = 0;
+                            }
+                        }
+                        PaddleService.courts = $scope.courts;
+                        PaddleService.reservaInit();
+                    }, function (warning) {
+                        $scope.courts = [];
+                    });
+            }
+            $scope.loadCourts();
+        },
+        link: function($scope, $elem, $attr) {
+            $scope.$on('reserva:updated', function(event, data) {
+                $scope.loadCourts();
             });
+
+            $scope.$on('courts:updated', function(event, data) {
+                $scope.courts = data;
+            })
         }
     }});

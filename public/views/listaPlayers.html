@@ -96,11 +96,11 @@
         <p>Please, point out where to allocate the player:</p>
         <div class="input-field col s6">
             <label class="active" for="allocate-courtid">Court number</label>
-            <input id="allocate-courtid" placeholder="Court number" min="1" max="{{PaddleService.courts.length}}" value="1" type="number" class="validate"/>
+            <input id="allocate-courtid" ng-model="courtId" placeholder="Court number" min="1" max="{{PaddleService.courts.length}}" value="1" type="number" class="validate"/>
         </div>
         <div class="input-field col s6">
             <label class="active" for="allocate-incourtpos">In-court position</label>
-            <input id="allocate-incourtpos" placeholder="In court position" min="1" max="4" value="1" type="number" class="validate"/>
+            <input id="allocate-incourtpos" ng-model="position" placeholder="In court position" min="1" max="4" value="1" type="number" class="validate"/>
         </div>
     </div>
     <div class="modal-footer">

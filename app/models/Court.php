@@ -10,7 +10,7 @@ class Court extends \Illuminate\Database\Eloquent\Model
 
     public function getReservas()
     {
-        return $this->belongsToMany('\User', 'reservas', 'court_id', 'user_id');
+        return $this->hasMany('\Reserva', 'courtId');
     }
 
     public static function isValidMaterial($material)

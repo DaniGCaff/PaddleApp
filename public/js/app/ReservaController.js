@@ -1,10 +1,26 @@
 angular.module('appControllers')
-    .controller('ReservaController', function($http, $location, $scope, AppAuth, $cookies, $routeParams) {
+    .controller('ReservaController', function($http, $location, $scope, $rootScope, AppAuth, $cookies, $routeParams, PaddleService) {
         $scope.AppAuth = AppAuth;
         $scope.seleccionado;
         $scope.operacion = $routeParams.operacion;
         $scope.reservaId = $routeParams.reservaId;
-		$scope.reserva = {};
+        $scope.reserva = {};
+
+        if(new Date().getMonth()+1 < 10)
+            var mes = "0" + (new Date().getMonth()+1);
+
+        if((new Date()).getHours() > 20) {
+            $scope.reserva.franja = 8;
+            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+        } else if((new Date()).getHours() < 8) {
+            $scope.reserva.franja = 8;
+            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+        } else {
+            $scope.reserva.franja = new Date().getHours();
+            $scope.reserva.fecha = new Date().getFullYear() + "-" + mes + "-" + new Date().getDate();
+        }
+
+        PaddleService.updateReserva($scope.reserva);
 
 		if($scope.operacion == 'modify') {
 			var config = {headers: {'X-Auth-Token': AppAuth.token}};
@@ -38,6 +54,14 @@ angular.module('appControllers')
                 });
         }
 
+        $scope.$watch('reserva.fecha', function(newValue, oldValue) {
+            PaddleService.updateReserva($scope.reserva);
+        });
+
+        $scope.$watch('reserva.franja', function(newValue, oldValue) {
+            PaddleService.updateReserva($scope.reserva);
+        });
+
         $scope.$on('selected_event', function(event, data) {
             $scope.$broadcast('notify_selection', 1);
         });
@@ -63,6 +87,25 @@ angular.module('appControllers')
                     $(".modifyBtn").filter(".court").removeClass('disabled');
                     $(".deleteBtn").filter(".court").removeClass('disabled');
                 });
+            }
+        }
+    })
+    .directive('crudeMisreservas', function($http, AppAuth) {
+        return {
+            restrict: 'E',
+            templateUrl: '../../views/crudeReservas.html',
+            controller: function ($scope, $http, AppAuth) {
+                var config = {headers: {'X-Auth-Token': AppAuth.token}}
+
+                $http.get("/reservas/user/"+AppAuth.id, config)
+                    .then(function(resp) {
+                        $scope.reservas = resp.data.reservas;
+                    }, function(warning) {
+                        $scope.reservas = [];
+                    });
+                $(".createBtn").filter(".reserva").hide();
+                $(".modifyBtn").filter(".reserva").hide();
+                $(".deleteBtn").filter(".reserva").hide();
             }
         }
     });

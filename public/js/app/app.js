@@ -92,7 +92,7 @@ angular.module('appControllers')
 			restrict: 'A',
 			controller: function ($scope) {
 				$scope.predicate = 'id';
-				$scope.rever = false;
+				$scope.rever = true;
 				$scope.order = function(field) {
 					$scope.predicate = field;
 				}
