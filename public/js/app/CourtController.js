@@ -112,6 +112,7 @@ angular.module('appControllers')
         link: function($scope, $elem, $attr) {
 
             $scope.$on('reserva:updated', function(event, data) {
+                $scope.courts = null;
                 $scope.loadCourts();
             });
 

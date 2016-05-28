@@ -3,7 +3,7 @@
 <a href="#/app/reservas/modify/{{seleccionado}}" class="reserva modifyBtn waves-effect waves-light btn yellow"><i class="material-icons left">edit</i>Modificar</a>
 
 <div class="row">
-	<div id="admin" class="col s12">
+	<div ordenable id="admin" class="col s12">
 		<div class="card material-table">
 			<div class="table-header">
 				<span class="table-title">Reservas</span>
@@ -22,7 +22,7 @@
 					</tr>
 				</thead>
 				<tbody ng-show="reservas.length > 0">
-					<tr ordenable seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever">
+					<tr seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever">
 						<td >{{reserva.id}}</td>
 						<td >{{reserva.nombreUsuario}}</td>
 						<td >{{reserva.courtId}}</td>

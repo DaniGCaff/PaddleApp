@@ -93,7 +93,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 angular.module('appControllers', ['ngCookies']);
 
 angular.module('appControllers')
-	.directive('ordenable', function($http, AppAuth) {
+	.directive('ordenable', function() {
 		return {
 			restrict: 'A',
 			controller: function ($scope) {
@@ -108,7 +108,7 @@ angular.module('appControllers')
 			}
 		}
 	})
-	.directive('seleccionableTr', function($http, AppAuth) {
+	.directive('seleccionableTr', function() {
 		return {
 			restrict: 'A',
 			link: function ($scope, $elem, $attr) {

@@ -4,7 +4,7 @@
 
 
 <div class="row">
-	<div id="admin" class="col s12">
+	<div ordenable id="admin" class="col s12">
 		<div class="card material-table">
 			<div class="table-header">
 				<span class="table-title">Usuarios</span>
@@ -24,7 +24,7 @@
                     <th ng-click="order('enabled')">Enabled</th>
 				</tr>
 				</thead>
-				<tbody ordenable ng-show="users.length > 0">
+				<tbody  ng-show="users.length > 0">
 					<tr seleccionable-tr id="{{user.id}}" ng-repeat="user in users | orderBy:predicate:rever">
                         <td>{{user.id}}</td>
 						<td >{{user.username}}</td>

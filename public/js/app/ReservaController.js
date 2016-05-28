@@ -105,6 +105,7 @@ angular.module('appControllers')
             controller: function($scope, $http, AppAuth, PaddleService) {
 
                 $scope.updateReserva = function() {
+                    $('.btn').attr("disabled","disabled");
                     PaddleService.updateReserva($scope.reserva);
                 }
 
@@ -127,6 +128,10 @@ angular.module('appControllers')
             link: function($scope, $elem, $attr) {
                 $scope.$watchGroup(['reserva.franja', 'reserva.fecha'], function(newValues, oldValues, scope) {
                     scope.updateReserva();
+                });
+
+                $scope.$on('reserva:init', function(evento, data) {
+                    $('.btn').removeAttr("disabled");
                 });
             }
         }
