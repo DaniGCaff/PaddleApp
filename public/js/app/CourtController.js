@@ -11,6 +11,7 @@ angular.module('appControllers')
 			$http.get('/courts/' + $scope.courtId, config)
 			.then(function(court) {
 				$scope.court = court.data;
+                $scope.court.color = $scope.court.color.toLowerCase();
 			}, function() {});
 		}
 
@@ -90,6 +91,7 @@ angular.module('appControllers')
                     .then(function (resp) {
                         $scope.courts = resp.data.courts;
                         for(var i = 0; i < $scope.courts.length; i++) {
+                            $scope.courts[i].color = $scope.courts[i].color.toLowerCase();
                             $scope.courts[i].players = new Array(4);
                             $scope.courts[i].countPlayers = 0;
                             $scope.courts[i].statusColor = {color: "green"};
