@@ -245,7 +245,7 @@ $app->get('/courts/{courtId}', function ($request, $response, $args) use($app) {
     return $newResponse;
 });
 
-$app->get('/courts/fecha/{fecha}/franja/{franja}[/{action}/{reservaId}]', function ($request, $response, $args) use($app) {
+$app->get('/courts/fecha/{fecha}/franja/{franja}[/{action}[/{reservaId}]]', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'GET /courts/fecha/{fecha}/franja/{franja}' route");
 
