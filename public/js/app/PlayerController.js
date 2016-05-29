@@ -65,6 +65,11 @@ angular.module('appControllers')
             notificarAccion("Datos salvados!");
         });
 
+        $scope.$on('reserva:loaded', function(data) {
+            $scope.players = $cookies.getObject('players');
+            notificarAccion("Datos cargados!");
+        });
+
         $scope.$on('players:loaded', function(event, data) {
             $scope.players = data;
         })

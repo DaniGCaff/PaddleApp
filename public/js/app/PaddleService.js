@@ -7,6 +7,8 @@ angular.module('appControllers')
     service.reserva = {};
     service.stringQuery = "";    
         
+    service.existenDatos = ($cookies.getObject('reserva') != null);
+        
     service.allocatePlayer = function(playerId, playerName, courtId, position) {
         if(service.courts[courtId - 1] != null) {
             if(service.courts[courtId - 1].players[position - 1] != null ) {
@@ -44,13 +46,13 @@ angular.module('appControllers')
         }
     };    
 
-    service.reloadReserva = function (data) {
+    service.reloadReserva = function (data, dataCourts) {
         service.reserva = data;
+        service.courts = dataCourts;
         $rootScope.$broadcast("reserva:updated", data);
     };
 
-    service.reservaInit = function(userId) {
-        service.reserva.userId = userId;
+    service.reservaInit = function() {
         $rootScope.$broadcast("reserva:init", service.courts);
     };
 
@@ -59,6 +61,13 @@ angular.module('appControllers')
         $cookies.putObject('courts', service.courts);
         $rootScope.$broadcast("reserva:saved", service.reserva);
     };
+        
+    service.cargarDatos = function() {
+        service.reserva = $cookies.getObject('reserva');
+        service.courts = $cookies.getObject('courts');
+        service.reloadReserva(service.reserva, service.courts);
+        $rootScope.$broadcast('reserva:loaded', service.reserva);
+    }    
 
 	return service;
 }]);

@@ -105,7 +105,7 @@ angular.module('appControllers')
 
                 $scope.createNewReserva = function () {
                     PaddleService.stringQuery = "/create";
-                    $scope.reserva.userId = -1;
+                    $scope.reserva.userId = AppAuth.id;
                     if(new Date().getMonth()+1 < 10)
                         var mes = "0" + (new Date().getMonth()+1);
 
@@ -146,15 +146,9 @@ angular.module('appControllers')
                 }
 
                 $scope.reloadReserva = function() {
-                    if($scope.primeraVez == 1) {
-                        $scope.primeraVez--;
-                        return;
-                    }
                     $('.btn').attr("disabled","disabled");
                     $('input').attr("disabled","disabled");
-                    PaddleService.reserva = $scope.reserva;
-                    PaddleService.courts = $scope.courts;
-                    PaddleService.reloadReserva($scope.reserva);
+                    PaddleService.reloadReserva($scope.reserva, $scope.courts);
                     $scope.primeraVez--;
                 };
 
@@ -162,13 +156,22 @@ angular.module('appControllers')
                     PaddleService.guardarDatos();
                 };
 
+                $scope.cargarDatos = function() {
+                    PaddleService.cargarDatos();
+                };
+
             },
             link: function(scope, $elem, $attr) {
 
                 scope.$watchGroup(['reserva.franja', 'reserva.fecha'], function(newValues, oldValues, scope) {
-                    if(scope.operacionIndicada == 'modify' && scope.primeraVez > 0) {
+                    if(scope.primeraVez == 1) {
+                        scope.primeraVez--;
+                        return;
+                    }
+
+                    if(scope.operacionIndicada == 'modify' && scope.primeraVez == 2) {
                         scope.modifyReserva();
-                    } else if(scope.operacionIndicada == 'create' && scope.primeraVez > 0) {
+                    } else if(scope.operacionIndicada == 'create' && scope.primeraVez == 2) {
                         scope.createNewReserva();
                     } else if(scope.primeraVez <= 0) {
                         scope.updateReserva();

@@ -84,6 +84,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 	} else {
 		if($cookies.getObject("AppAuth") != null) {
 			var galleta = $cookies.getObject("AppAuth");
+			AppAuth.id = galleta.id;
 			AppAuth.username = galleta.username;
 			AppAuth.roles = galleta.roles;
 			AppAuth.token = galleta.token;

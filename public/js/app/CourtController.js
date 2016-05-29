@@ -107,7 +107,6 @@ angular.module('appControllers')
         controller: function($scope, $http, AppAuth, PaddleService, $rootScope) {
             $scope.getCourts = function(courtsInit) {
                 var config = {headers: {'X-Auth-Token': AppAuth.token}}
-                debugger;
                 $http.get("/courts/fecha/" + PaddleService.reserva.fecha + "/franja/" + PaddleService.reserva.franja + "" + PaddleService.stringQuery, config)
                     .then(function (resp) {
                         $scope.courts = resp.data.courts;
@@ -161,6 +160,8 @@ angular.module('appControllers')
                             $rootScope.$broadcast("players:loaded", playersAux);
                         });
                     });
+                } else {
+                    $scope.courts = PaddleService.courts;
                 }
             };
         },
