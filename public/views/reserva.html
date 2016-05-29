@@ -1,14 +1,18 @@
 <div class="row">
-    <div class="col s4" ng-controller="PlayerController">
+    <div class="col s12 m4" ng-controller="PlayerController">
         <lista-players></lista-players>
     </div>
 
-    <div class="col s7 offset-s1">
-		<div>
-			<toolbar-reserva></toolbar-reserva>
-		</div>
-        <div class="row center-align" ng-controller="CourtController">
-            <lista-pistas></lista-pistas>
-        </div>
+    <div class="col s12 offset-m1 m7" ng-controller="CourtController">
+        <lista-pistas></lista-pistas>
     </div>
 </div>
+<div style="height:200px">
+
+</div>
+<footer style="position:fixed; left:0px; bottom:0px; width:100%; height:200px; z-index:999999;" class="grey lighten-2">
+    <br/><br/>
+    <div class="container">
+        <toolbar-reserva operacion-indicada="operacion" reserva-id="reservaId"></toolbar-reserva>
+    </div>
+</footer>

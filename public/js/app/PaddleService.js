@@ -1,9 +1,11 @@
 angular.module('appControllers')
-	.factory('PaddleService', ['$rootScope', function($rootScope) {
+	.factory('PaddleService', ['$rootScope', '$cookies', function($rootScope, $cookies) {
 
     var service = {};
         
 	service.courts = [];
+    service.reserva = {};
+        
     service.allocatePlayer = function(playerId, playerName, courtId, position) {
         if(service.courts[courtId - 1] != null) {
             if(service.courts[courtId - 1].players[position - 1] != null ) {
@@ -39,16 +41,22 @@ angular.module('appControllers')
                 }
             }
         }
-    }    
+    };    
 
-	service.reserva = {};
-    service.updateReserva = function (data) {
+    service.reloadReserva = function (data) {
         service.reserva = data;
         $rootScope.$broadcast("reserva:updated", data);
     };
 
-    service.reservaInit = function() {
+    service.reservaInit = function(userId) {
+        service.reserva.userId = userId;
         $rootScope.$broadcast("reserva:init", service.courts);
+    };
+
+    service.guardarDatos = function() {
+        $cookies.putObject('reserva', service.reserva);
+        $cookies.putObject('courts', service.courts);
+        $rootScope.$broadcast("reserva:saved", service.reserva);
     };
 
 	return service;

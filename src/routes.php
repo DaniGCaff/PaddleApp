@@ -363,4 +363,20 @@ $app->get('/reservas[/user/{userId}]', function ($request, $response, $args) use
     }
     return $newResponse;
 });
+
+$app->get('/reservas/{reservaId}', function ($request, $response, $args) use($app) {
+    // Sample log message
+    $this->logger->info("PADDLE APP - 'GET /reservas/{reservaId}' route");
+
+    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
+        return $response->withStatus(403);
+
+    $reserva = Reserva::find($args['reservaId']);
+    if($reserva != null) {
+        $newResponse = $response->withJson($reserva);
+    } else {
+        $newResponse = $response->withStatus(404);
+    }
+    return $newResponse;
+});
 // </editor-fold>

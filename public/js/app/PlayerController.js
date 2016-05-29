@@ -60,6 +60,11 @@ angular.module('appControllers')
             }
         });
 
+        $scope.$on('reserva:saved', function(data) {
+           $cookies.putObject("players", $scope.players);
+            notificarAccion("Datos salvados!");
+        });
+
     })
     .directive('listaPlayers', function() {
         return {
