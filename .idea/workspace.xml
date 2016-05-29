@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="832d2491-3678-4a90-9638-62658dc5e006" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/CourtController.js" afterPath="$PROJECT_DIR$/public/js/app/CourtController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PaddleService.js" afterPath="$PROJECT_DIR$/public/js/app/PaddleService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PlayerController.js" afterPath="$PROJECT_DIR$/public/js/app/PlayerController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/ReservaController.js" afterPath="$PROJECT_DIR$/public/js/app/ReservaController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/toolbarReserva.html" afterPath="$PROJECT_DIR$/public/views/toolbarReserva.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
     </list>
     <ignored path="PaddleApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -521,7 +515,7 @@
       <workItem from="1464346729851" duration="17129000" />
       <workItem from="1464381466303" duration="16053000" />
       <workItem from="1464435748647" duration="38156000" />
-      <workItem from="1464511136271" duration="27730000" />
+      <workItem from="1464511136271" duration="27766000" />
     </task>
     <task id="LOCAL-00001" summary="Avance considerable con respecto a las reservas.">
       <created>1464398528668</created>
@@ -607,7 +601,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464530604749</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Cargar y guardar con BBDD al 100%.">
+      <created>1464555410427</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1464555410427</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -616,7 +617,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196536000" />
+    <option name="totallyTimeSpent" value="196572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -666,7 +667,8 @@
     <MESSAGE value="Carga de reservas desde bbdd completa." />
     <MESSAGE value="Corrijo un error al crear reservas." />
     <MESSAGE value="Se cargan y se guardan reservas en las cookies." />
-    <option name="LAST_COMMIT_MESSAGE" value="Se cargan y se guardan reservas en las cookies." />
+    <MESSAGE value="Cargar y guardar con BBDD al 100%." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cargar y guardar con BBDD al 100%." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
