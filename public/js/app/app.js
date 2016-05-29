@@ -74,9 +74,11 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 			AppAuth.id = resp.data.id;
 			AppAuth.username = resp.data.username;
 			AppAuth.roles = resp.data.roles;
+			$cookies.putObject("AppAuth", AppAuth);
 			AppAuth.tokenAsigned();
 		}, function() {
 			AppAuth.status = false;
+			$cookies.putObject("AppAuth", AppAuth);
 			AppAuth.tokenAsigned();
 		});
 	} else {
@@ -86,6 +88,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 			AppAuth.roles = galleta.roles;
 			AppAuth.token = galleta.token;
 			AppAuth.status = galleta.status;
+			$cookies.putObject("AppAuth", AppAuth);
 			AppAuth.tokenAsigned();
 		}
 	}

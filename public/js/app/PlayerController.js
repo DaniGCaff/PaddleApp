@@ -65,6 +65,10 @@ angular.module('appControllers')
             notificarAccion("Datos salvados!");
         });
 
+        $scope.$on('players:loaded', function(event, data) {
+            $scope.players = data;
+        })
+
     })
     .directive('listaPlayers', function() {
         return {

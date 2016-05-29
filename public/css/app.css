@@ -1,6 +1,7 @@
 .paddle-court-cell {
 	height: 5%;
 	border: 1px black dotted;
+	overflow: hidden;
 }
 
 .paddle-court-cell:nth-child(odd) {

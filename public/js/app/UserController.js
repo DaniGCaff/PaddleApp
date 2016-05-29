@@ -34,7 +34,6 @@ angular.module('appControllers')
     	.then(function (resp) {
 			AppAuth.status = true;
 			AppAuth.token = resp.data;
-			$cookies.putObject("AppAuth", AppAuth);
 			$location.path("/app/home");
     	}, function (resp) {
 			alert(resp.data);

@@ -88,7 +88,7 @@ angular.module('appControllers')
                     $scope.cargarMisReservas();
                 });
 
-                if(AppAuth.token != null && AppAuth.status==true) {
+                if(AppAuth.id != null && AppAuth.status==true) {
                     $scope.cargarMisReservas();
                 }
             }
@@ -100,10 +100,11 @@ angular.module('appControllers')
             templateUrl: '../../views/toolbarReserva.html',
             scope: {operacionIndicada : '=', reservaId : '='},
             controller: function($scope, $http, AppAuth, PaddleService) {
-                $scope.primeraVez = true;
+                $scope.primeraVez = 2;
                 $scope.reserva = {};
 
                 $scope.createNewReserva = function () {
+                    PaddleService.stringQuery = "/create";
                     $scope.reserva.userId = -1;
                     if(new Date().getMonth()+1 < 10)
                         var mes = "0" + (new Date().getMonth()+1);
@@ -123,31 +124,38 @@ angular.module('appControllers')
                 };
 
                 $scope.modifyReserva = function() {
+
                     var config = {headers: {'X-Auth-Token': AppAuth.token}};
                     $http.get('/reservas/' + $scope.reservaId, config)
                         .then(function(reserva) {
                             $scope.reserva = reserva.data;
+                            $scope.reserva.players = reserva.data.jugadores.split(',');
                             $scope.courts = [];
                             $scope.reloadReserva();
+                            PaddleService.stringQuery = "/modify/" + $scope.reservaId;
                         }, function(warning) {
                             alert(warning.data);
                         });
                 }
 
                 $scope.updateReserva = function() {
-                    if(!$scope.primeraVez) {
+                    if($scope.primeraVez <= 0) {
                         $scope.courts = null;
                         $scope.reloadReserva();
                     }
                 }
 
                 $scope.reloadReserva = function() {
+                    if($scope.primeraVez == 1) {
+                        $scope.primeraVez--;
+                        return;
+                    }
                     $('.btn').attr("disabled","disabled");
                     $('input').attr("disabled","disabled");
                     PaddleService.reserva = $scope.reserva;
                     PaddleService.courts = $scope.courts;
-                    $scope.primeraVez = false;
                     PaddleService.reloadReserva($scope.reserva);
+                    $scope.primeraVez--;
                 };
 
                 $scope.guardarDatos = function() {
@@ -158,19 +166,19 @@ angular.module('appControllers')
             link: function(scope, $elem, $attr) {
 
                 scope.$watchGroup(['reserva.franja', 'reserva.fecha'], function(newValues, oldValues, scope) {
-                    scope.updateReserva();
+                    if(scope.operacionIndicada == 'modify' && scope.primeraVez > 0) {
+                        scope.modifyReserva();
+                    } else if(scope.operacionIndicada == 'create' && scope.primeraVez > 0) {
+                        scope.createNewReserva();
+                    } else if(scope.primeraVez <= 0) {
+                        scope.updateReserva();
+                    }
                 });
 
                 scope.$on('reserva:init', function(evento, data) {
                     $('.btn').removeAttr("disabled");
                     $('input').removeAttr("disabled");
                 });
-
-                if(scope.operacionIndicada == 'modify') {
-                    scope.modifyReserva();
-                } else if(scope.operacionIndicada == 'create') {
-                    scope.createNewReserva();
-                }
             }
         }
     });

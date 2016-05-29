@@ -17,15 +17,14 @@
 
 <div class="row">
     <div class="col s12">
-        <h2>Jugadores</h2>
         <div class="row">
             <form ng-submit="addPlayer()">
-                <div class="input-field col s6">
+                <div class="input-field col s12 m6">
                     <input placeholder="Insert player name" id="first_name" type="text" class="validate"
                            ng-model="newPlayerName">
                     <label class="active blue-text text-darken-2" for="first_name">Nombre del jugador</label>
                 </div>
-                <div class="col s6">
+                <div class="col s12 m6">
                     <button class="waves-effect waves-light btn blue lighten-1" ng-submit="addPlayer()">
                         <i class="material-icons left">add</i>Add
                     </button>
@@ -65,7 +64,7 @@
             </li>
         </ul>
 
-        <div id="panel-bienvenida" class="waves-effect waves-purple card-panel teal">
+        <div ng-show="players.length == 0" id="panel-bienvenida" class="waves-effect waves-purple card-panel teal">
               <span class="white-text">
                 <h3>¡Bienvenido!</h3>
                 Empieza añadiendo jugadores a la lista. Para ello debes escribir un nombre en el campo superior y luego darle al botón Add.

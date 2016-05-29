@@ -5,6 +5,7 @@ angular.module('appControllers')
         
 	service.courts = [];
     service.reserva = {};
+    service.stringQuery = "";    
         
     service.allocatePlayer = function(playerId, playerName, courtId, position) {
         if(service.courts[courtId - 1] != null) {

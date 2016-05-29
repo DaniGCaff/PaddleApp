@@ -116,6 +116,9 @@ $app->post('/users', function ($request, $response, $args) use($app) {
             $user = new User;
 
             $user->username = $parsedBody['username'];
+            $user->name = $parsedBody['name'];
+            $user->surname = $parsedBody['surname'];
+            $user->phone = $parsedBody['phone'];
             $user->email = $parsedBody['email'];
             $user->password = $parsedBody['password'];
             if(array_key_exists("enabled", $parsedBody))
@@ -170,6 +173,15 @@ $app->put('/users/{userId}', function ($request, $response, $args) use($app) {
 
         if (array_key_exists("password", $parsedBody))
             $user->password = $parsedBody['password'];
+
+        if (array_key_exists("name", $parsedBody))
+            $user->name = $parsedBody['name'];
+
+        if (array_key_exists("surname", $parsedBody))
+            $user->surname = $parsedBody['surname'];
+
+        if (array_key_exists("phone", $parsedBody))
+            $user->phone = $parsedBody['phone'];
 
         if (array_key_exists("enabled", $parsedBody) && in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
             $user->enabled = $parsedBody['enabled'];
@@ -233,7 +245,7 @@ $app->get('/courts/{courtId}', function ($request, $response, $args) use($app) {
     return $newResponse;
 });
 
-$app->get('/courts/fecha/{fecha}/franja/{franja}', function ($request, $response, $args) use($app) {
+$app->get('/courts/fecha/{fecha}/franja/{franja}[/{action}/{reservaId}]', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'GET /courts/fecha/{fecha}/franja/{franja}' route");
 
@@ -246,6 +258,13 @@ $app->get('/courts/fecha/{fecha}/franja/{franja}', function ($request, $response
         $court->reservas = $court->getReservas()->where("franja",'=',$args['franja'])->where('fecha','=',$args['fecha'])->get();
         if(count($court->reservas) == 0)
             $courtsDisponibles[] = $court;
+
+        if(array_key_exists('action', $args)) {
+            if($args['action'] === "modify") { // Si se quiere consultar las pistas, con la intención de modificar una reserva, se listan las pistas incluyendo la reservada
+                if($court->reservas->contains('id', $args['reservaId']))
+                    $courtsDisponibles[] = $court;
+            }
+        }
     }
     if($courts != null) {
         $courts = array("courts"=>$courtsDisponibles);
