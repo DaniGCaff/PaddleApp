@@ -18,16 +18,16 @@
 </script>
 
 <div class="row">
-    <button class="btn" ng-click="guardarDatos()">Guardar</button>
-    <button onclick="window.history.back();" class="btn">Cancelar</button>
-    <button class="green accent-4 btn">Confirmar y pagar</button>
+    <button class="btn col s12 offset-m1 m3" ng-click="guardarDatos()">Guardar</button>
+    <button onclick="window.history.back();" class="btn col s12  offset-m1 m3">Cancelar</button>
+    <button class="green accent-4 btn col s12  offset-m1 m3 ">Confirmar y pagar</button>
 </div>
 <div class="row card grey lighten-5 center">
-    <div class="input-field col s3 offset-s2">
+    <div class="input-field col s12 m3 offset-m2">
         <input type="number" id="franjaHoraria" placeholder="Franja horaria" min="8" max="20" ng-model="reserva.franja" required>
         <label class="active" for="franjaHoraria">Franja horaria</label>
     </div>
-    <div class="input-field col s5">
+    <div class="input-field col s12 m5">
         <input type="date" id="fecha" placeholder="Fecha de la reserva" ng-model="reserva.fecha" class="datepicker" required>
         <label class="active" for="fecha">Fecha de la reserva</label>
     </div>

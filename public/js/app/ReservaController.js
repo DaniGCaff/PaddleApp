@@ -72,9 +72,8 @@ angular.module('appControllers')
                 $(".createBtn").filter(".reserva").hide();
                 $(".modifyBtn").filter(".reserva").hide();
                 $(".deleteBtn").filter(".reserva").hide();
-            },
-            link: function($scope, $elem, $attr) {
-                $scope.$on('token:asigned', function(event, data) {
+
+                $scope.cargarMisReservas = function() {
                     var config = {headers: {'X-Auth-Token': AppAuth.token}}
                     $http.get("/reservas/user/"+AppAuth.id, config)
                         .then(function(resp) {
@@ -82,7 +81,16 @@ angular.module('appControllers')
                         }, function(warning) {
                             $scope.reservas = [];
                         });
+                }
+            },
+            link: function($scope, $elem, $attr) {
+                $scope.$on('token:asigned', function(event, data) {
+                    $scope.cargarMisReservas();
                 });
+
+                if(AppAuth.token != null && AppAuth.status==true) {
+                    $scope.cargarMisReservas();
+                }
             }
         }
     })

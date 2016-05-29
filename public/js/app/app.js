@@ -36,6 +36,7 @@ paddleApp.config(['$routeProvider', '$httpProvider',
       });
     
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+	$httpProvider.defaults.cache = true;
   }
 ]);
 
