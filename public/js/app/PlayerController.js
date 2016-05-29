@@ -55,9 +55,6 @@ angular.module('appControllers')
         };
 
         $scope.$on('reserva:init', function(data) {
-            for(var i = 0; i < $scope.players.length; i++) {
-                $scope.players[i].estado = 0;
-            }
         });
 
         $scope.$on('reserva:saved', function(data) {
@@ -66,7 +63,9 @@ angular.module('appControllers')
         });
 
         $scope.$on('reserva:loaded', function(data) {
+            if($cookies.getObject('players') == null) return;
             $scope.players = $cookies.getObject('players');
+            $cookies.remove('players');
             notificarAccion("Datos cargados!");
         });
 

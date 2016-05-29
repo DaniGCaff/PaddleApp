@@ -1,5 +1,5 @@
 angular.module('appControllers')
-	.factory('PaddleService', ['$rootScope', '$cookies', function($rootScope, $cookies) {
+	.factory('PaddleService', ['$rootScope', '$cookies', '$http', '$location', 'AppAuth', function($rootScope, $cookies, $http, $location, AppAuth) {
 
     var service = {};
         
@@ -63,11 +63,52 @@ angular.module('appControllers')
     };
         
     service.cargarDatos = function() {
+        if($cookies.getObject('reserva') == null || $cookies.getObject('courts')) return;
+        
         service.reserva = $cookies.getObject('reserva');
         service.courts = $cookies.getObject('courts');
+        $cookies.remove('reserva');
+        $cookies.remove('courts');
         service.reloadReserva(service.reserva, service.courts);
         $rootScope.$broadcast('reserva:loaded', service.reserva);
-    }    
+    };
+
+    service.confirmarDatos = function() {
+        var reservasValidas = [];
+        for(var i = 0; i < service.courts.length; i++) {
+            debugger;
+            if(service.courts[i].countPlayers == 4) {
+                var reservaValida = {};
+                reservaValida.userId = service.reserva.userId;
+                reservaValida.fecha = service.reserva.fecha;
+                reservaValida.franja = service.reserva.franja;
+                reservaValida.courtId = service.courts[i].id;
+                var serializedPlayers = "";
+                debugger;
+                for(var j = 0; j < 4; j ++) {
+                    if(j == 0)
+                        serializedPlayers = String(service.courts[i].players[j].name);
+                    else
+                        serializedPlayers += "," + String(service.courts[i].players[j].name);
+                }
+                reservaValida.jugadores = serializedPlayers;
+                reservasValidas.push(reservaValida);
+            }
+        }
+
+        if(reservasValidas.length > 0) {
+            for(var i = 0; i < reservasValidas.length; i++) {
+                var config = {headers: {'X-Auth-Token': AppAuth.token}}
+                $http.post('/reservas', reservasValidas, config). then(function(data) {
+                    $location.path("/#/app/home");
+                }, function (warning) {
+                    alert(warning.data);
+                });
+            }
+        } else {
+            alert("No hay reservas completas que confirmar.");
+        }
+    }
 
 	return service;
 }]);

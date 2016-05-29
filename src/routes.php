@@ -256,15 +256,33 @@ $app->get('/courts/fecha/{fecha}/franja/{franja}[/{action}[/{reservaId}]]', func
     $courtsDisponibles = array();
     foreach($courts as $court) {
         $court->reservas = $court->getReservas()->where("franja",'=',$args['franja'])->where('fecha','=',$args['fecha'])->get();
-        if(count($court->reservas) == 0)
+        $court->color = strtolower($court->color);
+        if(count($court->reservas) == 0) {
+            $court->countPlayers = 0;
+            $court->statusColor = "{color: 'green'}";
             $courtsDisponibles[] = $court;
-
-        if(array_key_exists('action', $args)) {
+        }
+        else if(array_key_exists('action', $args)) {
             if($args['action'] === "modify") { // Si se quiere consultar las pistas, con la intención de modificar una reserva, se listan las pistas incluyendo la reservada
-                if($court->reservas->contains('id', $args['reservaId']))
-                    $courtsDisponibles[] = $court;
+                if($court->reservas->contains('id', $args['reservaId'])) {
+                    $court->countPlayers = 4;
+                    $court->statusColor = "{color: 'red'}";
+                    $courtsDisponibles[] = $court;   
+                }
             }
         }
+
+       /* for(var i = 0; i < $scope.courts.length; i++) {
+            $scope.courts[i].color = $scope.courts[i].color.toLowerCase(); ok
+            $scope.courts[i].players = new Array(4);
+                            $scope.courts[i].countPlayers = 0;
+                            $scope.courts[i].statusColor = {color: "green"};
+                            for(var j = 0; j < 4; j++) {
+                $scope.courts[i].players[j] = new Object();
+                $scope.courts[i].players[j].name = '';
+                $scope.courts[i].players[j].id = 0;
+            }
+                        }*/
     }
     if($courts != null) {
         $courts = array("courts"=>$courtsDisponibles);
@@ -397,5 +415,31 @@ $app->get('/reservas/{reservaId}', function ($request, $response, $args) use($ap
         $newResponse = $response->withStatus(404);
     }
     return $newResponse;
+});
+
+$app->post('/reservas', function($request, $response, $args) use($app) {
+    // Sample log message
+    $this->logger->info("PADDLE APP - 'POST /reservas' route");
+
+    if(!in_array("ROLE_USER", $app->getContainer()->get("token")->roles))
+        return $response->withStatus(403);
+
+    $parsedBody = $request->getParsedBody();
+    $datosSalida = array();
+    foreach($parsedBody as $reserva) {
+        if(array_key_exists('courtId', $reserva) and array_key_exists('userId', $reserva) and array_key_exists('jugadores', $reserva) and
+            array_key_exists('fecha', $reserva) and array_key_exists('franja', $reserva)) {
+            $nuevaReserva = new Reserva;
+            $nuevaReserva->userId = $reserva['userId'];
+            $nuevaReserva->courtId = $reserva['courtId'];
+            $nuevaReserva->fecha = $reserva['fecha'];
+            $nuevaReserva->franja = $reserva['franja'];
+            $nuevaReserva->jugadores = $reserva['jugadores'];
+            $nuevaReserva->save();
+            $datosSalida[] = $nuevaReserva;
+        } else
+            return $response->withStatus(422);
+    }
+    return $response->withJson($datosSalida);
 });
 // </editor-fold>

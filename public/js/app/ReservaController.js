@@ -124,15 +124,14 @@ angular.module('appControllers')
                 };
 
                 $scope.modifyReserva = function() {
-
+                    PaddleService.stringQuery = "/modify/" + $scope.reservaId;
                     var config = {headers: {'X-Auth-Token': AppAuth.token}};
                     $http.get('/reservas/' + $scope.reservaId, config)
                         .then(function(reserva) {
                             $scope.reserva = reserva.data;
                             $scope.reserva.players = reserva.data.jugadores.split(',');
-                            $scope.courts = [];
+                            $scope.courts = null;
                             $scope.reloadReserva();
-                            PaddleService.stringQuery = "/modify/" + $scope.reservaId;
                         }, function(warning) {
                             alert(warning.data);
                         });
@@ -160,6 +159,14 @@ angular.module('appControllers')
                     PaddleService.cargarDatos();
                 };
 
+                $scope.confirmarDatos = function() {
+                    PaddleService.confirmarDatos();
+                };
+
+                $scope.digestDatos = function() {
+                    $scope.reserva = PaddleService.reserva;
+                }
+
             },
             link: function(scope, $elem, $attr) {
 
@@ -181,6 +188,10 @@ angular.module('appControllers')
                 scope.$on('reserva:init', function(evento, data) {
                     $('.btn').removeAttr("disabled");
                     $('input').removeAttr("disabled");
+                });
+
+                scope.$on('reserva:loaded', function(evento, data) {
+                    scope.digestDatos();
                 });
             }
         }

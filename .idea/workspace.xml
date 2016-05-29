@@ -7,8 +7,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PaddleService.js" afterPath="$PROJECT_DIR$/public/js/app/PaddleService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PlayerController.js" afterPath="$PROJECT_DIR$/public/js/app/PlayerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/ReservaController.js" afterPath="$PROJECT_DIR$/public/js/app/ReservaController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/app.js" afterPath="$PROJECT_DIR$/public/js/app/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/toolbarReserva.html" afterPath="$PROJECT_DIR$/public/views/toolbarReserva.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
     </list>
     <ignored path="PaddleApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CourtController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CourtController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/CourtController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+            <state relative-caret-position="192">
+              <caret line="120" column="75" selection-start-line="120" selection-start-column="75" selection-end-line="120" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -47,14 +47,11 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="247" column="72" selection-start-line="247" selection-start-column="72" selection-end-line="247" selection-end-column="72" />
+            <state relative-caret-position="279">
+              <caret line="429" column="58" selection-start-line="429" selection-start-column="58" selection-end-line="429" selection-end-column="58" />
               <folding>
                 <element signature="e#228#512#1#PHP" expanded="false" />
                 <element signature="e#294#465#0#PHP" expanded="false" />
-                <element signature="e#543#2009#1#PHP" expanded="false" />
-                <element signature="e#735#2006#0#PHP" expanded="false" />
-                <element signature="e#966#1907#0#PHP" expanded="false" />
                 <element signature="e#1213#1448#0#PHP" expanded="false" />
                 <element signature="e#1612#1703#0#PHP" expanded="false" />
                 <element signature="e#1612#1791#0#PHP" expanded="false" />
@@ -81,7 +78,6 @@
                 <element signature="e#7916#7979#0#PHP" expanded="false" />
                 <element signature="e#8010#8283#0#PHP" expanded="false" />
                 <element signature="e#8034#8282#1#PHP" expanded="false" />
-                <element signature="e#12992#13034#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,8 +86,8 @@
       <file leaf-file-name="ReservaController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="160" column="18" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+            <state relative-caret-position="568">
+              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding>
                 <element signature="e#1680#2676#0" expanded="false" />
               </folding>
@@ -99,11 +95,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="reserva.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/reserva.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="toolbarReserva.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="220">
+              <caret line="20" column="87" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -112,18 +128,18 @@
       <file leaf-file-name="PaddleService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/PaddleService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+            <state relative-caret-position="442">
+              <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+            <state relative-caret-position="136">
+              <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -137,26 +153,6 @@
               <folding>
                 <marker date="1464523982388" expanded="true" signature="131:272" placeholder="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/user.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="47" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-409">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -226,15 +222,15 @@
         <option value="$PROJECT_DIR$/public/views/listaPlayers.html" />
         <option value="$PROJECT_DIR$/public/views/listaPistas.html" />
         <option value="$PROJECT_DIR$/public/views/admin.html" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/app/UserController.js" />
-        <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/public/js/app/app.js" />
         <option value="$PROJECT_DIR$/public/views/toolbarReserva.html" />
+        <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/public/js/app/ReservaController.js" />
-        <option value="$PROJECT_DIR$/public/js/app/PlayerController.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/app/PaddleService.js" />
         <option value="$PROJECT_DIR$/public/js/app/CourtController.js" />
+        <option value="$PROJECT_DIR$/public/js/app/PlayerController.js" />
       </list>
     </option>
   </component>
@@ -273,10 +269,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1688" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -333,39 +329,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaddleApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaddleApp" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaddleApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PaddleApp" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,10 +348,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dependencies" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -427,7 +387,43 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="font" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="font" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="material-design-icons" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -525,7 +521,7 @@
       <workItem from="1464346729851" duration="17129000" />
       <workItem from="1464381466303" duration="16053000" />
       <workItem from="1464435748647" duration="38156000" />
-      <workItem from="1464511136271" duration="17984000" />
+      <workItem from="1464511136271" duration="27730000" />
     </task>
     <task id="LOCAL-00001" summary="Avance considerable con respecto a las reservas.">
       <created>1464398528668</created>
@@ -604,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464525885709</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Se cargan y se guardan reservas en las cookies.">
+      <created>1464530604749</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1464530604749</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -613,18 +616,18 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186790000" />
+    <option name="totallyTimeSpent" value="196536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1688" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22254759" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32969433" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17507887" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20414847" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -662,7 +665,8 @@
     <MESSAGE value="Responsive y correccion de fallo al volver a la pagina de inicio (no se estaban cargando las reservas)." />
     <MESSAGE value="Carga de reservas desde bbdd completa." />
     <MESSAGE value="Corrijo un error al crear reservas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrijo un error al crear reservas." />
+    <MESSAGE value="Se cargan y se guardan reservas en las cookies." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se cargan y se guardan reservas en las cookies." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -876,17 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/reserva.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#section#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#footer#0;n#section#1;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/listaPistas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -919,14 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="42" column="56" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/user.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -953,16 +938,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-461">
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/reserva.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="20" column="87" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="247" column="72" selection-start-line="247" selection-start-column="72" selection-end-line="247" selection-end-column="72" />
+        <state relative-caret-position="279">
+          <caret line="429" column="58" selection-start-line="429" selection-start-column="58" selection-end-line="429" selection-end-column="58" />
           <folding>
             <element signature="e#228#512#1#PHP" expanded="false" />
             <element signature="e#294#465#0#PHP" expanded="false" />
-            <element signature="e#543#2009#1#PHP" expanded="false" />
-            <element signature="e#735#2006#0#PHP" expanded="false" />
-            <element signature="e#966#1907#0#PHP" expanded="false" />
             <element signature="e#1213#1448#0#PHP" expanded="false" />
             <element signature="e#1612#1703#0#PHP" expanded="false" />
             <element signature="e#1612#1791#0#PHP" expanded="false" />
@@ -989,47 +995,30 @@
             <element signature="e#7916#7979#0#PHP" expanded="false" />
             <element signature="e#8010#8283#0#PHP" expanded="false" />
             <element signature="e#8034#8282#1#PHP" expanded="false" />
-            <element signature="e#12992#13034#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-461">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="69" column="47" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        <state relative-caret-position="102">
+          <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/PaddleService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="67" column="63" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+        <state relative-caret-position="442">
+          <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="160" column="18" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
+        <state relative-caret-position="568">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
             <element signature="e#1680#2676#0" expanded="false" />
           </folding>
@@ -1038,8 +1027,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/CourtController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="163" column="57" selection-start-line="163" selection-start-column="57" selection-end-line="163" selection-end-column="57" />
+        <state relative-caret-position="192">
+          <caret line="120" column="75" selection-start-line="120" selection-start-column="75" selection-end-line="120" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
           <folding />
         </state>
       </provider>
