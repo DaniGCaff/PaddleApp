@@ -19,6 +19,7 @@
 						<th ng-click="order('courtId')">Pista</th>
 						<th ng-click="order('fecha')">Fecha</th>
 						<th ng-click="order('franja')">Franja</th>
+						<th ng-click="order('created_at')">Fecha creación</th>
 					</tr>
 				</thead>
 				<tbody ng-show="reservas.length > 0">
@@ -28,6 +29,7 @@
 						<td >{{reserva.courtId}}</td>
 						<td >{{reserva.fecha}}</td>
 						<td >{{reserva.franja}}</td>
+						<td >{{reserva.created_at}}</td>
 					</tr>
 				</tbody>
 				<tbody ng-show="!reservas.length > 0">

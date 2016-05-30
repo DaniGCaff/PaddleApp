@@ -4,20 +4,19 @@
 $app->get('/', function($request, $response, $args) use ($app) {
     $response = $app->getContainer()->get("view")->render($response, "index.phtml");
     return $response;
-    //return $response->withStatus(302)->withHeader('Location', '../index.html');
 });
 
 $app->get('/views/{view}', function($request, $response, $args) use ($app) {
-    if(array_key_exists('payload', $_SESSION) || $args['view'] === "login" || $args['view'] == "user" || $args['view'] == "home"){
+    if(array_key_exists('payload', $_SESSION) || $args['view'] === "login" || $args['view'] === "user" || $args['view'] === "index" || $args['view'] === "home"){
         $response = $app->getContainer()->get("view")->render($response, $args['view'] . ".phtml");
     } else {
         $response = $response->withStatus(404);
     }
     return $response;
-    //return $response->withStatus(302)->withHeader('Location', '../index.html');
 });
 
 // <editor-fold desc="RUTAS DE /users">
+
 $app->get('/users/me', function($request, $response, $args) use($app) {
 	$responseData = [
 		"id" => $app->getContainer()->get("token")->id,
@@ -247,6 +246,7 @@ $app->options('/users', function ($request, $response, $args) {
     $newResponse = $response->withAddedHeader('Allow', 'DELETE, GET, POST, PUT, OPTIONS');
     return $newResponse;
 });
+
 // </editor-fold>
 
 // <editor-fold desc="RUTAS DE /courts">
@@ -292,18 +292,6 @@ $app->get('/courts/fecha/{fecha}/franja/{franja}[/{action}[/{reservaId}]]', func
                 }
             }
         }
-
-       /* for(var i = 0; i < $scope.courts.length; i++) {
-            $scope.courts[i].color = $scope.courts[i].color.toLowerCase(); ok
-            $scope.courts[i].players = new Array(4);
-                            $scope.courts[i].countPlayers = 0;
-                            $scope.courts[i].statusColor = {color: "green"};
-                            for(var j = 0; j < 4; j++) {
-                $scope.courts[i].players[j] = new Object();
-                $scope.courts[i].players[j].name = '';
-                $scope.courts[i].players[j].id = 0;
-            }
-                        }*/
     }
     if($courts != null) {
         $courts = array("courts"=>$courtsDisponibles);

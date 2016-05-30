@@ -3,7 +3,6 @@
 class Court extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = 'courts';
-    public $timestamps  = false;
 
     private static $validMaterials = array('HORMIGON', 'CESPED', 'MOQUETA');
     private static $validColors = array('BLUE', 'GREEN', 'BROWN');
