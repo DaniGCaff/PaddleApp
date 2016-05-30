@@ -21,7 +21,7 @@ $app->post('/users/login', function($request, $response, $args) use($app) {
 
     $parsedBody = $request->getParsedBody();
     if(array_key_exists('username', $parsedBody) and array_key_exists('password', $parsedBody)) {
-        $user = User::where("username", "=", $parsedBody["username"])->where("password", "=", $parsedBody["password"])->first();
+        $user = User::where("enabled","=","TRUE")->where("username", "=", $parsedBody["username"])->where("password", "=", $parsedBody["password"])->first();
         if($user != null) {
             $roles = $user->getRoles->lists('role');
 
@@ -101,9 +101,6 @@ $app->post('/users', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'POST /users' route");
 
-    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
-        return $response->withStatus(403);
-
     $parsedBody = $request->getParsedBody();
     if(!array_key_exists('username', $parsedBody) or !array_key_exists('email', $parsedBody) or !array_key_exists('password', $parsedBody)) {
         $newResponse = $response->withStatus(422);
@@ -123,6 +120,8 @@ $app->post('/users', function ($request, $response, $args) use($app) {
             $user->password = $parsedBody['password'];
             if(array_key_exists("enabled", $parsedBody))
                 $user->enabled = $parsedBody['enabled'];
+            else
+                $user->enabled = 'FALSE';
 
             $syncRoles = array();
             if(array_key_exists("roles", $parsedBody)) {
@@ -133,6 +132,8 @@ $app->post('/users', function ($request, $response, $args) use($app) {
             $user->getRoles()->sync($syncRoles);
             $user->save();
             $user['roles'] = $user->getRoles()->lists('role');
+            if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles) && in_array('ROLE_ADMIN', $user['roles']))
+                return $response->withStatus(403);
             unset($user->getRoles);
             $newResponse = $response->withJson($user);
         }
@@ -144,10 +145,10 @@ $app->put('/users/{userId}', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'PUT /users/{userId}' route");
 
-    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
-        return $response->withStatus(403);
-
     $parsedBody = $request->getParsedBody();
+
+    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles) && ($app->getContainer()->get("token")->id != $args['userId']))
+        return $response->withStatus(403);
 
     $user = User::find($args['userId']);
     if($user != null) {
@@ -183,8 +184,13 @@ $app->put('/users/{userId}', function ($request, $response, $args) use($app) {
         if (array_key_exists("phone", $parsedBody))
             $user->phone = $parsedBody['phone'];
 
-        if (array_key_exists("enabled", $parsedBody) && in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
-            $user->enabled = $parsedBody['enabled'];
+        if (array_key_exists("enabled", $parsedBody) && in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles)) {
+            if($parsedBody['enabled'] == true)
+                $user->enabled = 'true';
+            else
+                $user->enabled = 'false';
+        }
+
 
         $user->save();
         $syncRoles = array();
@@ -194,6 +200,8 @@ $app->put('/users/{userId}', function ($request, $response, $args) use($app) {
         $user->getRoles()->sync($syncRoles);
         $user->save();
         $user['roles'] = $user->getRoles()->lists('role');
+        if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles) && in_array('ROLE_ADMIN', $user['roles']))
+            return $response->withStatus(403);
         unset($user->getRoles);
         $newResponse = $response->withJson($user);
     } else {
@@ -441,5 +449,21 @@ $app->post('/reservas', function($request, $response, $args) use($app) {
             return $response->withStatus(422);
     }
     return $response->withJson($datosSalida);
+});
+$app->delete('/reservas/{reservaId}', function ($request, $response, $args) use($app) {
+    // Sample log message
+    $this->logger->info("PADDLE APP - 'DELETE /reservas/{reservaId}' route");
+
+    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
+        return $response->withStatus(403);
+
+    $user = User::find($args['userId']);
+    if($user != null) {
+        $user->delete();
+        $newResponse = $response->withStatus(204);
+    } else {
+        $newResponse = $response->withStatus(404);
+    }
+    return $newResponse;
 });
 // </editor-fold>

@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="832d2491-3678-4a90-9638-62658dc5e006" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/UserController.js" afterPath="$PROJECT_DIR$/public/js/app/UserController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/app.js" afterPath="$PROJECT_DIR$/public/js/app/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/crudeReservas.html" afterPath="$PROJECT_DIR$/public/views/crudeReservas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/toolbarReserva.html" afterPath="$PROJECT_DIR$/public/views/toolbarReserva.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/user.html" afterPath="$PROJECT_DIR$/public/views/user.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
     </list>
     <ignored path="PaddleApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,37 +47,31 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="429" column="58" selection-start-line="429" selection-start-column="58" selection-end-line="429" selection-end-column="58" />
+            <state relative-caret-position="16">
+              <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
               <folding>
-                <element signature="e#228#512#1#PHP" expanded="false" />
-                <element signature="e#294#465#0#PHP" expanded="false" />
-                <element signature="e#1213#1448#0#PHP" expanded="false" />
-                <element signature="e#1612#1703#0#PHP" expanded="false" />
-                <element signature="e#1612#1791#0#PHP" expanded="false" />
-                <element signature="e#1803#1907#0#PHP" expanded="false" />
-                <element signature="e#1914#2006#0#PHP" expanded="false" />
-                <element signature="e#2042#2609#1#PHP" expanded="false" />
-                <element signature="e#2351#2582#0#PHP" expanded="false" />
-                <element signature="e#2519#2582#0#PHP" expanded="false" />
-                <element signature="e#2633#3356#1#PHP" expanded="false" />
-                <element signature="e#2943#3329#0#PHP" expanded="false" />
-                <element signature="e#2975#3164#0#PHP" expanded="false" />
-                <element signature="e#3266#3329#0#PHP" expanded="false" />
-                <element signature="e#3381#5167#1#PHP" expanded="false" />
-                <element signature="e#4675#4867#0#PHP" expanded="false" />
-                <element signature="e#5200#7461#1#PHP" expanded="false" />
-                <element signature="e#5584#5988#0#PHP" expanded="false" />
-                <element signature="e#5645#5978#0#PHP" expanded="false" />
-                <element signature="e#5710#5905#0#PHP" expanded="false" />
-                <element signature="e#6115#6304#0#PHP" expanded="false" />
-                <element signature="e#7371#7434#0#PHP" expanded="false" />
-                <element signature="e#7465#8007#0#PHP" expanded="false" />
-                <element signature="e#7497#8006#1#PHP" expanded="false" />
-                <element signature="e#7814#7979#0#PHP" expanded="false" />
-                <element signature="e#7916#7979#0#PHP" expanded="false" />
-                <element signature="e#8010#8283#0#PHP" expanded="false" />
-                <element signature="e#8034#8282#1#PHP" expanded="false" />
+                <element signature="e#1641#1732#0#PHP" expanded="false" />
+                <element signature="e#1641#1820#0#PHP" expanded="false" />
+                <element signature="e#1943#2035#0#PHP" expanded="false" />
+                <element signature="e#2071#2638#1#PHP" expanded="false" />
+                <element signature="e#2380#2611#0#PHP" expanded="false" />
+                <element signature="e#2548#2611#0#PHP" expanded="false" />
+                <element signature="e#2662#3385#1#PHP" expanded="false" />
+                <element signature="e#2972#3358#0#PHP" expanded="false" />
+                <element signature="e#3004#3193#0#PHP" expanded="false" />
+                <element signature="e#3295#3358#0#PHP" expanded="false" />
+                <element signature="e#4644#4836#0#PHP" expanded="false" />
+                <element signature="e#5792#6196#0#PHP" expanded="false" />
+                <element signature="e#5853#6186#0#PHP" expanded="false" />
+                <element signature="e#5918#6113#0#PHP" expanded="false" />
+                <element signature="e#6323#6512#0#PHP" expanded="false" />
+                <element signature="e#7854#7917#0#PHP" expanded="false" />
+                <element signature="e#8297#8462#0#PHP" expanded="false" />
+                <element signature="e#8399#8462#0#PHP" expanded="false" />
+                <element signature="e#8493#8766#0#PHP" expanded="false" />
+                <element signature="e#8517#8765#1#PHP" expanded="false" />
+                <element signature="e#17280#17445#0#PHP" expanded="false" />
+                <element signature="e#17382#17445#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="ReservaController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
+            <state relative-caret-position="1241">
               <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding>
                 <element signature="e#1680#2676#0" expanded="false" />
@@ -89,11 +89,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reserva.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/reserva.html">
+      <file leaf-file-name="crudeReservas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/crudeReservas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            <state relative-caret-position="136">
+              <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crudeUsuarios.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/crudeUsuarios.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="43" column="72" selection-start-line="43" selection-start-column="72" selection-end-line="43" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -102,51 +122,19 @@
       <file leaf-file-name="toolbarReserva.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="20" column="87" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+            <state relative-caret-position="197">
+              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaddleService.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/app/PaddleService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="88" column="30" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="969">
               <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/app/UserController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-              <folding>
-                <marker date="1464523982388" expanded="true" signature="131:272" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -154,9 +142,21 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-461">
-              <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+            <state relative-caret-position="289">
+              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/app/UserController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+              <folding>
+                <marker date="1464566065459" expanded="true" signature="131:272" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -206,25 +206,25 @@
         <option value="$PROJECT_DIR$/public/js/dependencies/datatable.js" />
         <option value="$PROJECT_DIR$/public/views/home.html" />
         <option value="$PROJECT_DIR$/public/views/crudeUsuarios.html" />
-        <option value="$PROJECT_DIR$/public/views/crudeReservas.html" />
         <option value="$PROJECT_DIR$/public/views/crudePistas.html" />
         <option value="$PROJECT_DIR$/public/views/pista.html" />
-        <option value="$PROJECT_DIR$/public/views/user.html" />
         <option value="$PROJECT_DIR$/public/views/login.html" />
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/public/views/reserva.html" />
         <option value="$PROJECT_DIR$/public/views/listaPlayers.html" />
         <option value="$PROJECT_DIR$/public/views/listaPistas.html" />
         <option value="$PROJECT_DIR$/public/views/admin.html" />
-        <option value="$PROJECT_DIR$/public/js/app/UserController.js" />
-        <option value="$PROJECT_DIR$/public/js/app/app.js" />
-        <option value="$PROJECT_DIR$/public/views/toolbarReserva.html" />
-        <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/public/js/app/ReservaController.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/app/PaddleService.js" />
         <option value="$PROJECT_DIR$/public/js/app/CourtController.js" />
         <option value="$PROJECT_DIR$/public/js/app/PlayerController.js" />
+        <option value="$PROJECT_DIR$/public/views/toolbarReserva.html" />
+        <option value="$PROJECT_DIR$/public/views/crudeReservas.html" />
+        <option value="$PROJECT_DIR$/public/js/app/app.js" />
+        <option value="$PROJECT_DIR$/src/routes.php" />
+        <option value="$PROJECT_DIR$/public/views/user.html" />
+        <option value="$PROJECT_DIR$/public/js/app/UserController.js" />
       </list>
     </option>
   </component>
@@ -323,7 +323,39 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PaddleApp" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,7 +547,7 @@
       <workItem from="1464346729851" duration="17129000" />
       <workItem from="1464381466303" duration="16053000" />
       <workItem from="1464435748647" duration="38156000" />
-      <workItem from="1464511136271" duration="27766000" />
+      <workItem from="1464511136271" duration="35486000" />
     </task>
     <task id="LOCAL-00001" summary="Avance considerable con respecto a las reservas.">
       <created>1464398528668</created>
@@ -608,7 +640,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464555410427</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Cargar y guardar con BBDD al 100%.">
+      <created>1464555417012</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1464555417012</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -617,7 +656,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196572000" />
+    <option name="totallyTimeSpent" value="204292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -834,13 +873,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/dependencies/datatable.js" />
-    <entry file="file://$PROJECT_DIR$/public/views/crudeUsuarios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/dependencies/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -863,14 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/crudeReservas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -914,36 +938,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="47" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-409">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/UserController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <marker date="1464523982388" expanded="true" signature="131:272" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-461">
-          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -953,51 +951,6 @@
         <state relative-caret-position="221">
           <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="20" column="87" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="429" column="58" selection-start-line="429" selection-start-column="58" selection-end-line="429" selection-end-column="58" />
-          <folding>
-            <element signature="e#228#512#1#PHP" expanded="false" />
-            <element signature="e#294#465#0#PHP" expanded="false" />
-            <element signature="e#1213#1448#0#PHP" expanded="false" />
-            <element signature="e#1612#1703#0#PHP" expanded="false" />
-            <element signature="e#1612#1791#0#PHP" expanded="false" />
-            <element signature="e#1803#1907#0#PHP" expanded="false" />
-            <element signature="e#1914#2006#0#PHP" expanded="false" />
-            <element signature="e#2042#2609#1#PHP" expanded="false" />
-            <element signature="e#2351#2582#0#PHP" expanded="false" />
-            <element signature="e#2519#2582#0#PHP" expanded="false" />
-            <element signature="e#2633#3356#1#PHP" expanded="false" />
-            <element signature="e#2943#3329#0#PHP" expanded="false" />
-            <element signature="e#2975#3164#0#PHP" expanded="false" />
-            <element signature="e#3266#3329#0#PHP" expanded="false" />
-            <element signature="e#3381#5167#1#PHP" expanded="false" />
-            <element signature="e#4675#4867#0#PHP" expanded="false" />
-            <element signature="e#5200#7461#1#PHP" expanded="false" />
-            <element signature="e#5584#5988#0#PHP" expanded="false" />
-            <element signature="e#5645#5978#0#PHP" expanded="false" />
-            <element signature="e#5710#5905#0#PHP" expanded="false" />
-            <element signature="e#6115#6304#0#PHP" expanded="false" />
-            <element signature="e#7371#7434#0#PHP" expanded="false" />
-            <element signature="e#7465#8007#0#PHP" expanded="false" />
-            <element signature="e#7497#8006#1#PHP" expanded="false" />
-            <element signature="e#7814#7979#0#PHP" expanded="false" />
-            <element signature="e#7916#7979#0#PHP" expanded="false" />
-            <element signature="e#8010#8283#0#PHP" expanded="false" />
-            <element signature="e#8034#8282#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1017,16 +970,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="e#1680#2676#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/CourtController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1035,11 +978,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
+    <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+          <folding>
+            <element signature="e#1680#2676#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/toolbarReserva.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/crudeReservas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/crudeUsuarios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
           <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="191" column="9" selection-start-line="191" selection-start-column="9" selection-end-line="191" selection-end-column="9" />
+          <folding>
+            <element signature="e#1641#1732#0#PHP" expanded="false" />
+            <element signature="e#1641#1820#0#PHP" expanded="false" />
+            <element signature="e#1943#2035#0#PHP" expanded="false" />
+            <element signature="e#2071#2638#1#PHP" expanded="false" />
+            <element signature="e#2380#2611#0#PHP" expanded="false" />
+            <element signature="e#2548#2611#0#PHP" expanded="false" />
+            <element signature="e#2662#3385#1#PHP" expanded="false" />
+            <element signature="e#2972#3358#0#PHP" expanded="false" />
+            <element signature="e#3004#3193#0#PHP" expanded="false" />
+            <element signature="e#3295#3358#0#PHP" expanded="false" />
+            <element signature="e#4644#4836#0#PHP" expanded="false" />
+            <element signature="e#5792#6196#0#PHP" expanded="false" />
+            <element signature="e#5853#6186#0#PHP" expanded="false" />
+            <element signature="e#5918#6113#0#PHP" expanded="false" />
+            <element signature="e#6323#6512#0#PHP" expanded="false" />
+            <element signature="e#7854#7917#0#PHP" expanded="false" />
+            <element signature="e#8297#8462#0#PHP" expanded="false" />
+            <element signature="e#8399#8462#0#PHP" expanded="false" />
+            <element signature="e#8493#8766#0#PHP" expanded="false" />
+            <element signature="e#8517#8765#1#PHP" expanded="false" />
+            <element signature="e#17280#17445#0#PHP" expanded="false" />
+            <element signature="e#17382#17445#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="43" column="72" selection-start-line="43" selection-start-column="72" selection-end-line="43" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding>
+            <marker date="1464566065459" expanded="true" signature="131:272" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

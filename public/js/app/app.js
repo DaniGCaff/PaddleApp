@@ -36,16 +36,36 @@ paddleApp.config(['$routeProvider', '$httpProvider',
       });
     
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-	$httpProvider.defaults.cache = true;
+	//$httpProvider.defaults.cache = true;
   }
 ]);
 
-paddleApp.factory('AppAuth', function($rootScope) {
+paddleApp.factory('AppAuth', function($rootScope, $http, $cookies) {
 	var authenticated = {status: false, username: "", roles: [], token: ""};
 
 	authenticated.tokenAsigned = function() {
 		$rootScope.$broadcast('token:asigned', authenticated.token);
 	};
+	
+	authenticated.cargarDatos = function(callback) {
+		var config = {headers: {'X-Auth-Token': authenticated.token}}
+		$http.get("/users/me", config).then(function(resp) {
+			authenticated.status = true;
+			authenticated.id = resp.data.id;
+			authenticated.username = resp.data.username;
+			authenticated.roles = resp.data.roles;
+			$cookies.putObject("AppAuth", authenticated);
+			authenticated.tokenAsigned();
+			if(callback != null)
+				callback();
+		}, function() {
+			authenticated.status = false;
+			$cookies.putObject("AppAuth", authenticated);
+			authenticated.tokenAsigned();
+			if(callback != null)
+				callback();
+		});
+	}
 
 	return authenticated;
 });
@@ -54,7 +74,7 @@ paddleApp.factory('Notificaciones', function() {
 	notificarAccion = function (accion) {
 		var $toastContent = $('<span>'+accion+'</span>');
 		Materialize.toast($toastContent, 1000);
-	}
+	};
 
 	return this;
 })
@@ -69,18 +89,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 	};
 	
 	if(AppAuth.status == true) {
-		var config = {headers: {'X-Auth-Token': AppAuth.token}}
-		$http.get("/users/me", config).then(function(resp) {
-			AppAuth.id = resp.data.id;
-			AppAuth.username = resp.data.username;
-			AppAuth.roles = resp.data.roles;
-			$cookies.putObject("AppAuth", AppAuth);
-			AppAuth.tokenAsigned();
-		}, function() {
-			AppAuth.status = false;
-			$cookies.putObject("AppAuth", AppAuth);
-			AppAuth.tokenAsigned();
-		});
+		AppAuth.cargarDatos();
 	} else {
 		if($cookies.getObject("AppAuth") != null) {
 			var galleta = $cookies.getObject("AppAuth");

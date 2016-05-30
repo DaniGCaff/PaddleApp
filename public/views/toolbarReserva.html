@@ -18,10 +18,10 @@
 </script>
 
 <div class="row">
-    <button class="btn col s12 offset-m1 m2" ng-click="guardarDatos()">Guardar</button>
-    <button class="btn col s12  offset-m1 m2" ng-click="cargarDatos()">Cargar</button>
+    <button ng-show="operacionIndicada != 'modify'" class="btn col s12 offset-m1 m2" ng-click="guardarDatos()">Guardar</button>
+    <button ng-show="operacionIndicada != 'modify'" class="btn col s12  offset-m1 m2" ng-click="cargarDatos()">Cargar</button>
     <button onclick="window.history.back();" class="btn col s12  offset-m1 m2">Cancelar</button>
-    <button class="green accent-4 btn col s12  offset-m1 m2" ng-click="confirmarDatos()" >Confirmar</button>
+    <button ng-show="operacionIndicada != 'modify'" class="green accent-4 btn col s12  offset-m1 m2" ng-click="confirmarDatos()" >Confirmar</button>
 </div>
 <div class="row card grey lighten-5 center">
     <div class="input-field col s12 m3 offset-m2">

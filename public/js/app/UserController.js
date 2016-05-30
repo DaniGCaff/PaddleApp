@@ -23,6 +23,11 @@ angular.module('appControllers')
 			$http.get('/users/' + $scope.userId, config)
 				.then(function (user) {
 					$scope.user = user.data;
+					if($scope.user.enabled === 'true') $scope.user.enabled = true;
+					else $scope.user.enabled = false;
+
+					if($scope.user.roles.indexOf('ROLE_ADMIN') > 0) $scope.user.admin = true;
+					else $scope.user.admin = false;
 					$scope.callback();
 				}, function () {
 				});
@@ -32,9 +37,10 @@ angular.module('appControllers')
     $scope.login = function() {
     	$http.post("/users/login", {"username":$("#login-username").val(),"password":$("#login-password").val()})
     	.then(function (resp) {
-			AppAuth.status = true;
 			AppAuth.token = resp.data;
-			$location.path("/app/home");
+			AppAuth.cargarDatos(function() {
+				$location.path("/app/home");
+			});
     	}, function (resp) {
 			alert(resp.data);
 			$scope.callback();
@@ -43,6 +49,7 @@ angular.module('appControllers')
 	
 	$scope.create = function() {
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
+		$scope.user.roles = ['ROLE_USER'];
     	$http.post("/users", $scope.user, config)
     	.then(function(resp) {
 			window.history.back();
@@ -53,8 +60,14 @@ angular.module('appControllers')
     }
 	
 	$scope.update = function() {
+		if($scope.enabled) $scope.enabled = 1;
+		else $scope.enabled = 0;
+
+		if($scope.admin) $scope.roles = ['ROLE_ADMIN', 'ROLE_USER'];
+		else $scope.roles = ['ROLE_USER'];
+
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
-		$http.put("/users/" + $scope.seleccionado, $scope.user, config)
+		$http.put("/users/" + $scope.userId, $scope.user, config)
     	.then(function(resp) {
 			window.history.back();
     	}, function(warning) {
@@ -65,7 +78,7 @@ angular.module('appControllers')
 
 	$scope.delete = function() {
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
-		$http.delete("/users/" + $scope.seleccionado, config)
+		$http.delete("/users/" + $scope.userId, config)
 			.then(function(resp) {
 				window.history.back();
 			}, function(warning) {
