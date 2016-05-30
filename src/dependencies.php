@@ -32,3 +32,5 @@ $container['db'] = function ($c) {
 $container["token"] = function ($container) {
     return new StdClass;
 };
+
+$container['view'] = new \Slim\Views\PhpRenderer("../templates/");

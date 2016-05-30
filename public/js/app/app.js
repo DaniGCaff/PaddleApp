@@ -4,31 +4,31 @@ paddleApp.config(['$routeProvider', '$httpProvider',
   function($routeProvider, $httpProvider) {
     $routeProvider.
 	  when('/app/reservas/:operacion\/:reservaId?', {
-	      templateUrl: 'views/reserva.html',
+	      templateUrl: 'views/reserva',
 	      controller: 'ReservaController'
 	  }).
 	  when('/app/courts/:operacion\/:courtId?', {
-	      templateUrl: 'views/pista.html',
+	      templateUrl: 'views/pista',
 	      controller: 'CourtController'
 	  }).
 	  when('/app/users/login', {
-	      templateUrl: 'views/login.html',
+	      templateUrl: 'views/login',
 	      controller: 'UserController'
 	  }).
 	  when('/app/users/:operacion\/:userId?', {
-	      templateUrl: 'views/user.html',
+	      templateUrl: 'views/user',
 	      controller: 'UserController'
 	  }).
 	  when('/app/admin', {
-	      templateUrl: 'views/admin.html',
+	      templateUrl: 'views/admin',
 	      controller: 'SessionController'
 	  }).
 	  when('/app/home', {
-	      templateUrl: 'views/home.html',
+	      templateUrl: 'views/home',
 	      controller: 'SessionController'
 	  }).
 	  when('/', {
-	      templateUrl: 'views/home.html',
+	      templateUrl: 'views/home',
 	      controller: 'SessionController'
 	  }).
       otherwise({

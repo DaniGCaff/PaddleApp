@@ -79,7 +79,7 @@ angular.module('appControllers')
     .directive('crudePistas', function($http, AppAuth) {
     return {
         restrict: 'E',
-        templateUrl: '../../views/crudePistas.html',
+        templateUrl: '../../views/crudePistas',
         controller: function ($scope, $http, AppAuth) {
             var config = {headers: {'X-Auth-Token': AppAuth.token}}
 			
@@ -103,7 +103,7 @@ angular.module('appControllers')
     .directive('listaPistas', function() {
     return {
         restrict: 'E',
-        templateUrl: '../../views/listaPistas.html',
+        templateUrl: '../../views/listaPistas',
         controller: function($scope, $http, AppAuth, PaddleService, $rootScope) {
             $scope.getCourts = function() {
                 var config = {headers: {'X-Auth-Token': AppAuth.token}}

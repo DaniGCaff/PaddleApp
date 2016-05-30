@@ -77,6 +77,6 @@ angular.module('appControllers')
     .directive('listaPlayers', function() {
         return {
             restrict: 'E',
-            templateUrl: '../../views/listaPlayers.html'
+            templateUrl: '../../views/listaPlayers'
         }
     });

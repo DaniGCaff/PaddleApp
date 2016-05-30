@@ -43,7 +43,7 @@ angular.module('appControllers')
     .directive('crudeReservas', function($http, AppAuth) {
         return {
             restrict: 'E',
-            templateUrl: '../../views/crudeReservas.html',
+            templateUrl: '../../views/crudeReservas',
             controller: function ($scope, $http, AppAuth) {
                 var config = {headers: {'X-Auth-Token': AppAuth.token}}
 
@@ -67,7 +67,7 @@ angular.module('appControllers')
     .directive('crudeMisreservas', function($http, AppAuth) {
         return {
             restrict: 'E',
-            templateUrl: '../../views/crudeReservas.html',
+            templateUrl: '../../views/crudeReservas',
             controller: function ($scope, $http, AppAuth) {
                 $(".createBtn").filter(".reserva").hide();
                 $(".modifyBtn").filter(".reserva").hide();
@@ -97,7 +97,7 @@ angular.module('appControllers')
     .directive('toolbarReserva', function() {
         return {
             restrict: 'E',
-            templateUrl: '../../views/toolbarReserva.html',
+            templateUrl: '../../views/toolbarReserva',
             scope: {operacionIndicada : '=', reservaId : '='},
             controller: function($scope, $http, AppAuth, PaddleService) {
                 $scope.primeraVez = 2;

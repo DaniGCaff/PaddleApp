@@ -2,7 +2,19 @@
 // Routes
 
 $app->get('/', function($request, $response, $args) use ($app) {
-    return $response->withStatus(302)->withHeader('Location', '/index.html');
+    $response = $app->getContainer()->get("view")->render($response, "index.phtml");
+    return $response;
+    //return $response->withStatus(302)->withHeader('Location', '../index.html');
+});
+
+$app->get('/views/{view}', function($request, $response, $args) use ($app) {
+    if(array_key_exists('payload', $_SESSION) || $args['view'] === "login" || $args['view'] == "user" || $args['view'] == "home"){
+        $response = $app->getContainer()->get("view")->render($response, $args['view'] . ".phtml");
+    } else {
+        $response = $response->withStatus(404);
+    }
+    return $response;
+    //return $response->withStatus(302)->withHeader('Location', '../index.html');
 });
 
 // <editor-fold desc="RUTAS DE /users">
@@ -37,6 +49,7 @@ $app->post('/users/login', function($request, $response, $args) use($app) {
 				"username" => $user->username,
 				"id" => $user->id
             ];
+            $_SESSION['payload'] = $payload;
             $secret = "supersecreto";
             $token = \Firebase\JWT\JWT::encode($payload, $secret, "HS256");
             $data = $token;

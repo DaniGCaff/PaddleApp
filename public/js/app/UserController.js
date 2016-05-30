@@ -94,7 +94,7 @@ angular.module('appControllers')
 .directive('crudeUsuarios', function($http, AppAuth) {
     return {
 		restrict: 'E',
-		templateUrl: '../../views/crudeUsuarios.html',
+		templateUrl: '../../views/crudeUsuarios',
 		controller: function ($scope, $http, AppAuth) {
 			var config = {headers: {'X-Auth-Token': AppAuth.token}}
 			$http.get("/users", config)
