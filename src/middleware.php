@@ -12,7 +12,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
     "rules" => [
         new \Slim\Middleware\JwtAuthentication\RequestPathRule([
             "path" => ["/users", "/courts", "/reservas"],
-            "passthrough" => ["/users/login"]
+            "passthrough" => ["/users/login", "/users/create", "/users/check"]
         ]),
         new \Slim\Middleware\JwtAuthentication\RequestMethodRule([
             "passthrough" => ["OPTIONS"]

@@ -1,4 +1,4 @@
-<div ng-show="!AppAuth.status" ng-hide="AppAuth.status">
+<div ng-hide="AppAuth.status">
 	<div style="height: 250px;" class="valign-wrapper  center-align row">
 		<div class="col s6">
 			<span class="valign center-block"><a class="valign"
@@ -41,7 +41,7 @@
 	</div>
 </div>
 
-<div ng-show="AppAuth.status" ng-hide="!AppAuth.status" class="row">
+<div ng-show="AppAuth.status" class="row">
 <div class="col s8 offset-s2">
   <div class="card">
 	<div class="card-image">
@@ -55,7 +55,6 @@
 	  <a href="#/app/users/modify/{{AppAuth.id}}">Editar mis datos</a>
 	</div>
   </div>
-
 	<section ng-controller="ReservaController">
 		<link rel="stylesheet" href="../css/datatable.css">
 		<crude-misreservas></crude-misreservas>

@@ -87,7 +87,7 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 		$cookies.putObject("AppAuth", AppAuth);
 		$location.path("#/app/home");
 	};
-	
+
 	if(AppAuth.status == true) {
 		AppAuth.cargarDatos();
 	} else {
@@ -138,7 +138,7 @@ angular.module('appControllers')
 	})
 	.directive('commonView', function() {
 		return {
-			scope: { modifyFunction: '&' },
+			scope: { modifyFunction: '&'},
 			controller: function($scope) {
 				$scope.returnedControl = function() {
 					$(".btn").removeAttr("disabled");

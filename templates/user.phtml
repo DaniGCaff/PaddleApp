@@ -1,8 +1,19 @@
 <div class="row">
+    <div class="col s12" id="feedback"></div>
     <form common-view modify-function="injectCallback(callback)" class="col s12">
-    <section ng-hide="operacion != 'modify' && operacion != 'create'">
+    <section ng-show="(operacion == 'create' && !validated)">
+        <div ng-show="operacion === 'create'" class="input-field col s6">
+            <input placeholder="Username" ng-model="user.username" id="username" type="text" class="validate" required>
+            <label class="active" data-error="Inválido" data-success="Correcto" for="username">Username</label>
+        </div>
+        <div class="input-field col s6">
+            <input placeholder="E-mail" ng-model="user.email" id="email" type="email" class="validate" required>
+            <label class="active" data-error="Inválido" data-success="Correcto" for="email">E-mail</label>
+        </div>
+    </section>
+    <section ng-show="(operacion == 'create' && validated) || operacion == 'modify'">
           <div ng-show="operacion === 'create'" class="input-field col s6">
-              <input placeholder="Username" ng-model="user.username" id="username" type="text" class="validate" required="">
+              <input placeholder="Username" ng-model="user.username" id="username" ng-disabled="validated" type="text" class="validate" required>
               <label class="active" data-error="Inválido" data-success="Correcto" for="username">Username</label>
           </div>
           <div ng-show="operacion === 'modify'" class="input-field col s6">
@@ -11,7 +22,7 @@
           </div>
 
           <div class="input-field col s6">
-               <input placeholder="Password" ng-model="user.password" id="password" type="password" class="validate" required="">
+               <input placeholder="Password" ng-model="user.password" id="password" type="password" class="validate" required>
                <label class="active" data-error="Inválido" data-success="Correcto" for="password">Password</label>
           </div>
 
@@ -21,17 +32,17 @@
           </div>
 
           <div class="input-field col s6">
-               <input placeholder="Apellidos" ng-model="user.surname" id="surname" type="text" class="validate" required="">
+               <input placeholder="Apellidos" ng-model="user.surname" id="surname" type="text" class="validate" required>
                <label class="active" data-error="Inválido" data-success="Correcto" for="surname">Apellidos</label>
           </div>
 
           <div class="input-field col s6">
-               <input placeholder="Teléfono" ng-model="user.phone" id="phone" type="tel" class="validate" required="" pattern="\d{3}(?:[\-]?)\d{3}(?:[\-]?)\d{3}">
+               <input placeholder="Teléfono" ng-model="user.phone" id="phone" type="tel" class="validate" required pattern="\d{3}(?:[\-]?)\d{3}(?:[\-]?)\d{3}">
                <label class="active" data-error="Inválido" data-success="Correcto" for="phone">Teléfono</label>
           </div>
 
           <div class="input-field col s6">
-               <input placeholder="E-mail" ng-model="user.email" id="email" type="email" class="validate" required="">
+               <input placeholder="E-mail" ng-model="user.email" id="email" type="email" ng-disabled="validated" class="validate" required>
                <label class="active" data-error="Inválido" data-success="Correcto" for="email">E-mail</label>
           </div>
 
@@ -53,9 +64,10 @@
   
   <div class="center-align">
       <button onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</button>
-      <button ng-show="operacion == 'create'" ng-click="create()" class="waves-effect waves-light btn">Aceptar</button>
-      <button ng-show="operacion == 'modify'" ng-click="update()" class="waves-effect waves-light btn">Aceptar</button>
-      <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" class="waves-effect waves-light btn">Aceptar</button>
+      <button ng-show="operacion == 'create' && validated" ng-click="create()" formnovalidate class="waves-effect waves-light btn" ng-disabled="isInvalid()">Aceptar</button>
+      <button ng-show="operacion == 'create' && !validated" ng-click="validate()" formnovalidate class="waves-effect waves-light btn">Aceptar</button>
+      <button ng-show="operacion == 'modify'" ng-click="update()" formnovalidate class="waves-effect waves-light btn">Aceptar</button>
+      <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" formnovalidate class="waves-effect waves-light btn">Aceptar</button>
   </div>
   </form>
 </div>

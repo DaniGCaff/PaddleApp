@@ -2,6 +2,7 @@ angular.module('appControllers')
 .controller('UserController', function($http, $location, $scope, AppAuth, $cookies, $routeParams) {
 	$scope.AppAuth = AppAuth;
 	$scope.seleccionado;
+	$scope.validated = false;
 	$scope.operacion = $routeParams.operacion;
 	$scope.userId = $routeParams.userId;
 	$scope.user = {};
@@ -15,6 +16,24 @@ angular.module('appControllers')
 			$scope.callback();
 		}
 	}
+
+	$scope.isInvalid = function() {
+		if($scope.user.username == null ||
+			$scope.user.password == null ||
+			$scope.user.email == null ||
+			$scope.user.name == null ||
+			$scope.user.surname == null ||
+			$scope.user.phone == null ||
+			$scope.user.username.trim().length == 0 ||
+		    $scope.user.password.trim().length == 0 ||
+		    $scope.user.email.trim().length == 0 ||
+		    $scope.user.name.trim().length == 0 ||
+		    $scope.user.surname.trim().length == 0 ||
+		    $scope.user.phone.trim().length == 0) {
+			return true;
+		}
+		return false;
+	};
 
 	$scope.modifyView = function(callback) {
 		this.callback = callback;
@@ -42,7 +61,7 @@ angular.module('appControllers')
 				$location.path("/app/home");
 			});
     	}, function (resp) {
-			alert(resp.data);
+			alert("El usuario y/o la contraseña no son válidos.");
 			$scope.callback();
     	});
     }
@@ -50,21 +69,32 @@ angular.module('appControllers')
 	$scope.create = function() {
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
 		$scope.user.roles = ['ROLE_USER'];
-    	$http.post("/users", $scope.user, config)
-    	.then(function(resp) {
-			window.history.back();
-    	}, function(warning) {
-    		alert(warning.data);
-			$scope.callback();
-    	});
-    }
+		$http.post("/users/create", $scope.user, config)
+			.then(function(resp) {
+				window.history.back();
+			}, function(warning) {
+				alert(warning.data);
+				$scope.callback();
+			});
+    };
+	
+	$scope.validate = function() {
+		$http.post("/users/check", $scope.user)
+			.then(function(resp) {
+				$scope.validated = true;
+				$scope.callback();
+			}, function(warning) {
+				alert("El usuario y/o email ya están en uso.");
+				$scope.callback();
+			});
+	}
 	
 	$scope.update = function() {
-		if($scope.enabled) $scope.enabled = 1;
-		else $scope.enabled = 0;
+		if($scope.user.enabled) $scope.user.enabled = 1;
+		else $scope.user.enabled = 0;
 
-		if($scope.admin) $scope.roles = ['ROLE_ADMIN', 'ROLE_USER'];
-		else $scope.roles = ['ROLE_USER'];
+		if($scope.user.admin) $scope.user.roles = ['ROLE_ADMIN', 'ROLE_USER'];
+		else $scope.user.roles = ['ROLE_USER'];
 
 		var config = {headers: {'X-Auth-Token': AppAuth.token}};
 		$http.put("/users/" + $scope.userId, $scope.user, config)

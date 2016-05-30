@@ -17,6 +17,22 @@ $app->get('/views/{view}', function($request, $response, $args) use ($app) {
 
 // <editor-fold desc="RUTAS DE /users">
 
+$app->post('/users/check', function($request, $response, $args) use($app) {
+    $parsedBody = $request->getParsedBody();
+    if(!array_key_exists('username', $parsedBody) or !array_key_exists('email', $parsedBody)) {
+        $newResponse = $response->withStatus(422);
+    } else {
+        if (User::where('username', '=', $parsedBody['username'])->count() > 0) {
+            $newResponse = $response->withStatus(400);
+        } else if (User::where('email', '=', $parsedBody['email'])->count() > 0) {
+            $newResponse = $response->withStatus(400);
+        } else {
+            $newResponse = $response;
+        }
+    }
+    return $newResponse;
+});
+
 $app->get('/users/me', function($request, $response, $args) use($app) {
 	$responseData = [
 		"id" => $app->getContainer()->get("token")->id,
@@ -32,7 +48,7 @@ $app->post('/users/login', function($request, $response, $args) use($app) {
 
     $parsedBody = $request->getParsedBody();
     if(array_key_exists('username', $parsedBody) and array_key_exists('password', $parsedBody)) {
-        $user = User::where("enabled","=","TRUE")->where("username", "=", $parsedBody["username"])->where("password", "=", $parsedBody["password"])->first();
+        $user = User::where("enabled","=","true")->where("username", "=", $parsedBody["username"])->where("password", "=", $parsedBody["password"])->first();
         if($user != null) {
             $roles = $user->getRoles->lists('role');
 
@@ -109,7 +125,7 @@ $app->get('/users', function ($request, $response, $args) use($app) {
     return $newResponse;
 });
 
-$app->post('/users', function ($request, $response, $args) use($app) {
+$app->post('/users/create', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'POST /users' route");
 
@@ -143,9 +159,17 @@ $app->post('/users', function ($request, $response, $args) use($app) {
             $user->save();
             $user->getRoles()->sync($syncRoles);
             $user->save();
+
             $user['roles'] = $user->getRoles()->lists('role');
-            if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles) && in_array('ROLE_ADMIN', $user['roles']))
-                return $response->withStatus(403);
+            if($user['roles']->contains("ROLE_ADMIN")) {
+                if (array_key_exists("payload", $_SESSION)) {
+                    if (!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles)) {
+                        return $response->withStatus(403);
+                    }
+                } else {
+                    return $response->withStatus(403);
+                }
+            }
             unset($user->getRoles);
             $newResponse = $response->withJson($user);
         }
@@ -391,9 +415,6 @@ $app->get('/reservas[/user/{userId}]', function ($request, $response, $args) use
     // Sample log message
     $this->logger->info("PADDLE APP - 'GET /reservas' route");
 
-    if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
-        return $response->withStatus(403);
-
     if(array_key_exists("userId", $args))
         $reservas = Reserva::where("userId","=",$args['userId'])->get();
     else
@@ -438,19 +459,26 @@ $app->post('/reservas', function($request, $response, $args) use($app) {
     foreach($parsedBody as $reserva) {
         if(array_key_exists('courtId', $reserva) and array_key_exists('userId', $reserva) and array_key_exists('jugadores', $reserva) and
             array_key_exists('fecha', $reserva) and array_key_exists('franja', $reserva)) {
+            if(Reserva::where("courtId","=", $reserva['courtId'])->where("fecha","=", $reserva['fecha'])->where("franja","=", $reserva['franja'])->count() > 0)
+                return $response->withStatus(400);
+
             $nuevaReserva = new Reserva;
             $nuevaReserva->userId = $reserva['userId'];
             $nuevaReserva->courtId = $reserva['courtId'];
             $nuevaReserva->fecha = $reserva['fecha'];
             $nuevaReserva->franja = $reserva['franja'];
             $nuevaReserva->jugadores = $reserva['jugadores'];
-            $nuevaReserva->save();
             $datosSalida[] = $nuevaReserva;
         } else
             return $response->withStatus(422);
     }
+
+    foreach($datosSalida as $nuevaReserva)
+        $nuevaReserva->save();
+
     return $response->withJson($datosSalida);
 });
+
 $app->delete('/reservas/{reservaId}', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'DELETE /reservas/{reservaId}' route");
@@ -465,6 +493,14 @@ $app->delete('/reservas/{reservaId}', function ($request, $response, $args) use(
     } else {
         $newResponse = $response->withStatus(404);
     }
+    return $newResponse;
+});
+
+$app->options('/reservas', function ($request, $response, $args) {
+    // Sample log message
+    $this->logger->info("PADDLE APP - 'OPTIONS /reservas' route");
+
+    $newResponse = $response->withAddedHeader('Allow', 'DELETE, GET, POST, OPTIONS');
     return $newResponse;
 });
 // </editor-fold>
