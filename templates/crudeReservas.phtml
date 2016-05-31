@@ -22,8 +22,9 @@
 						<th ng-click="order('created_at')">Fecha creación</th>
 					</tr>
 				</thead>
+				<input type="input" ng-model="fechaMin" />
 				<tbody ng-show="reservas.length > 0">
-					<tr seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever">
+					<tr seleccionable-tr id="{{reserva.id}}" ng-repeat="reserva in reservas | orderBy:predicate:rever | fechaMinima:fechaMin">
 						<td >{{reserva.id}}</td>
 						<td >{{reserva.nombreUsuario}}</td>
 						<td >{{reserva.courtId}}</td>

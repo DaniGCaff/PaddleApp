@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="832d2491-3678-4a90-9638-62658dc5e006" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PaddleService.js" afterPath="$PROJECT_DIR$/public/js/app/PaddleService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/PlayerController.js" afterPath="$PROJECT_DIR$/public/js/app/PlayerController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/ReservaController.js" afterPath="$PROJECT_DIR$/public/js/app/ReservaController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/UserController.js" afterPath="$PROJECT_DIR$/public/js/app/UserController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app/app.js" afterPath="$PROJECT_DIR$/public/js/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/middleware.php" afterPath="$PROJECT_DIR$/src/middleware.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes.php" afterPath="$PROJECT_DIR$/src/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home.phtml" afterPath="$PROJECT_DIR$/templates/home.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.phtml" afterPath="$PROJECT_DIR$/templates/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/reserva.phtml" afterPath="$PROJECT_DIR$/templates/reserva.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user.phtml" afterPath="$PROJECT_DIR$/templates/user.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/crudeReservas.phtml" afterPath="$PROJECT_DIR$/templates/crudeReservas.phtml" />
     </list>
     <ignored path="PaddleApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,16 +31,6 @@
     <option name="SORT_POSITIONED" value="false" />
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - paddleapp@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -127,33 +108,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReservaController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReservaController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="179" column="43" selection-start-line="179" selection-start-column="30" selection-end-line="179" selection-end-column="43" />
-              <folding>
-                <element signature="e#1288#2279#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="37" column="131" selection-start-line="37" selection-start-column="131" selection-end-line="37" selection-end-column="131" />
+            <state relative-caret-position="136">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f51e01f8-93b5-4cac-b5a7-2917cf13c5c6/console.sql">
+      <file leaf-file-name="crudeReservas.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/crudeReservas.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -162,8 +131,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+            <state relative-caret-position="170">
+              <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -179,7 +148,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app/PlayerController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -248,19 +217,19 @@
         <option value="$PROJECT_DIR$/templates/crudePistas.phtml" />
         <option value="$PROJECT_DIR$/templates/crudeUsuarios.phtml" />
         <option value="$PROJECT_DIR$/app/models/Court.php" />
-        <option value="$PROJECT_DIR$/templates/crudeReservas.phtml" />
         <option value="$PROJECT_DIR$/app/models/Reserva.php" />
         <option value="$PROJECT_DIR$/public/js/app/UserController.js" />
         <option value="$PROJECT_DIR$/src/middleware.php" />
         <option value="$PROJECT_DIR$/templates/home.phtml" />
-        <option value="$PROJECT_DIR$/public/js/app/app.js" />
         <option value="$PROJECT_DIR$/templates/user.phtml" />
         <option value="$PROJECT_DIR$/templates/index.phtml" />
         <option value="$PROJECT_DIR$/templates/reserva.phtml" />
-        <option value="$PROJECT_DIR$/public/js/app/ReservaController.js" />
         <option value="$PROJECT_DIR$/src/routes.php" />
         <option value="$PROJECT_DIR$/public/js/app/PaddleService.js" />
         <option value="$PROJECT_DIR$/public/js/app/PlayerController.js" />
+        <option value="$PROJECT_DIR$/public/js/app/app.js" />
+        <option value="$PROJECT_DIR$/templates/crudeReservas.phtml" />
+        <option value="$PROJECT_DIR$/public/js/app/ReservaController.js" />
       </list>
     </option>
   </component>
@@ -564,7 +533,7 @@
       <workItem from="1464435748647" duration="38156000" />
       <workItem from="1464511136271" duration="39525000" />
       <workItem from="1464630788451" duration="14226000" />
-      <workItem from="1464677742993" duration="12133000" />
+      <workItem from="1464677742993" duration="13920000" />
     </task>
     <task id="LOCAL-00001" summary="Avance considerable con respecto a las reservas.">
       <created>1464398528668</created>
@@ -692,7 +661,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464646455293</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Ultimas comprobaciones">
+      <created>1464734085271</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1464734085271</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -701,7 +677,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234690000" />
+    <option name="totallyTimeSpent" value="236477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -709,8 +685,9 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23298033" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17507887" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2111293" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -719,7 +696,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995633" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -757,7 +733,8 @@
     <MESSAGE value="Primera aproximación al tema de las sesiones, vuelve a quedar pendiente el tema de validaciones." />
     <MESSAGE value="Añadido el tema de fechas en reservas" />
     <MESSAGE value="Hemos terminado!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hemos terminado!!!" />
+    <MESSAGE value="Ultimas comprobaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultimas comprobaciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -997,14 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/crudeReservas.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/CourtController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
@@ -1020,14 +989,6 @@
           <folding>
             <marker date="1464678184939" expanded="true" signature="131:299" placeholder="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,16 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="179" column="43" selection-start-line="179" selection-start-column="30" selection-end-line="179" selection-end-column="43" />
-          <folding>
-            <element signature="e#1288#2279#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app/PaddleService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
@@ -1131,6 +1082,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="90" column="6" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/crudeReservas.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app/ReservaController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
         </state>
       </provider>

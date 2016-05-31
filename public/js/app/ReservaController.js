@@ -32,10 +32,12 @@ angular.module('appControllers')
         });
     })
     .directive('crudeReservas', function($http, AppAuth) {
+
         return {
             restrict: 'E',
             templateUrl: '../../views/crudeReservas',
-            controller: function ($scope, $http, AppAuth) {
+            controller: function ($scope, $http, AppAuth, $filter) {
+
                 var config = {headers: {'X-Auth-Token': AppAuth.token}}
 
                 $http.get("/reservas", config)
@@ -54,6 +56,28 @@ angular.module('appControllers')
                 });
             }
         }
+    }).filter("fechaMinima", function() {
+
+        function parseDate(input) {
+            var parts = input.split('-');
+            return new Date(parts[2], parts[1]-1, parts[0]);
+        }
+
+        return function(items, from) {
+            if(from != null && from.length > 0) {
+                var df = parseDate(from);
+                var result = [];
+                for (var i=0; i<items.length; i++){
+                    var tf = parseDate(items[i].fecha);
+                    if (tf >= df)  {
+                        result.push(items[i]);
+                    }
+                }
+                return result;
+            } else {
+                return items;
+            }
+        };
     })
     .directive('crudeMisreservas', function($http, AppAuth) {
         return {

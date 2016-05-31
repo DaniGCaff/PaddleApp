@@ -87,7 +87,6 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 			AppAuth.status = false;
 			$cookies.putObject("AppAuth", AppAuth);
 			$location.path("#/app/home");
-			$location.reload();
 		});
 	};
 
