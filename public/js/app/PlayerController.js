@@ -54,6 +54,12 @@ angular.module('appControllers')
             }
         };
 
+        $scope.$on('reserva:updated', function(data) {
+            for(var i = 0; i < $scope.players.length; i++) {
+                $scope.players[i].estado = 0;
+            }
+        });
+
         $scope.$on('reserva:init', function(data) {
         });
 

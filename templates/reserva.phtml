@@ -1,6 +1,8 @@
 <section ng-show="operacion != 'modify' && operacion != 'create'">
     <p class="center-align">¿Está seguro de que quiere eliminar la reserva '{{reservaId}}'?<br/>
-        No habrá modo de recuperar los datos después de efectuarse la operación.</p><br/><br/>
+        No habrá modo de recuperar los datos después de efectuarse la operación.<br/><br/>
+    <button onclick="window.history.back();" class="waves-effect waves-light btn">Cancelar</button>
+    <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" formnovalidate class="waves-effect waves-light btn">Aceptar</button></p>
 </section>
 <section ng-show="operacion == 'modify' || operacion == 'create'">
     <div class="row">

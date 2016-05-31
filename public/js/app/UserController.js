@@ -54,7 +54,11 @@ angular.module('appControllers')
 	}
 	
     $scope.login = function() {
-    	$http.post("/users/login", {"username":$("#login-username").val(),"password":$("#login-password").val()})
+		var modo = "";
+		if($routeParams['modo'] != null) {
+			modo = "/" + $routeParams['modo'];
+		}
+    	$http.post("/users/login" + modo, {"username":$("#login-username").val(),"password":$("#login-password").val()})
     	.then(function (resp) {
 			AppAuth.token = resp.data;
 			AppAuth.cargarDatos(function() {

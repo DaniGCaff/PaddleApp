@@ -76,7 +76,6 @@ angular.module('appControllers')
     service.confirmarDatos = function() {
         var reservasValidas = [];
         for(var i = 0; i < service.courts.length; i++) {
-            debugger;
             if(service.courts[i].countPlayers == 4) {
                 var reservaValida = {};
                 reservaValida.userId = service.reserva.userId;
@@ -84,7 +83,6 @@ angular.module('appControllers')
                 reservaValida.franja = service.reserva.franja;
                 reservaValida.courtId = service.courts[i].id;
                 var serializedPlayers = "";
-                debugger;
                 for(var j = 0; j < 4; j ++) {
                     if(j == 0)
                         serializedPlayers = String(service.courts[i].players[j].name);

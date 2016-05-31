@@ -34,7 +34,7 @@
 				  <a href="#/app/home" class="brand-logo center">Paddle App</a>
 				  <ul id="nav-mobile" class="right">
 					<li><a href="#/app/home">Inicio</a></li>
-					<li ng-show="AppAuth.status && AppAuth.roles.indexOf('ROLE_USER') != -1"><a href="#/app/reservas/create">Reservas</a></li>
+					<li ng-show="AppAuth.status && AppAuth.roles.indexOf('ROLE_USER') != -1 && AppAuth.roles.indexOf('ROLE_ADMIN') == -1"><a href="#/app/reservas/create">Reservas</a></li>
 					<li ng-show="AppAuth.status && AppAuth.roles.indexOf('ROLE_ADMIN') != -1"><a href="#/app/admin">Administración</a></li>
 					<li ng-show="AppAuth.status"><a ng-click="logout()">Cerrar sesión [{{AppAuth.username}}]</a></li>
 				  </ul>

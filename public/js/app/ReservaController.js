@@ -16,19 +16,10 @@ angular.module('appControllers')
                 });
         };
 
-        $scope.update = function() {
-            var config = {headers: {'X-Auth-Token': AppAuth.token}}
-            $http.put("/reservas/" + $scope.seleccionado, $scope.reserva, config)
-                .then(function(resp) {
-                    $location.path("/#/app/admin");
-                }, function(warning) {
-                    alert(warning.data);
-                });
-        };
 
         $scope.delete = function() {
             var config = {headers: {'X-Auth-Token': AppAuth.token}};
-            $http.delete("/reservas/" + $scope.seleccionado, config)
+            $http.delete("/reservas/" + $scope.reservaId, config)
                 .then(function(resp) {
                     window.history.back();
                 }, function(warning) {
@@ -67,6 +58,7 @@ angular.module('appControllers')
     .directive('crudeMisreservas', function($http, AppAuth) {
         return {
             restrict: 'E',
+            scope: {usuarioId: '='},
             templateUrl: '../../views/crudeReservas',
             controller: function ($scope, $http, AppAuth) {
                 $(".createBtn").filter(".reserva").hide();
@@ -75,7 +67,7 @@ angular.module('appControllers')
 
                 $scope.cargarMisReservas = function() {
                     var config = {headers: {'X-Auth-Token': AppAuth.token}}
-                    $http.get("/reservas/user/"+AppAuth.id, config)
+                    $http.get("/reservas/user/"+ $scope.usuarioId, config)
                         .then(function(resp) {
                             $scope.reservas = resp.data.reservas;
                         }, function(warning) {
@@ -83,13 +75,17 @@ angular.module('appControllers')
                         });
                 }
             },
-            link: function($scope, $elem, $attr) {
-                $scope.$on('token:asigned', function(event, data) {
-                    $scope.cargarMisReservas();
+            link: function(scope, $elem, $attr) {
+                scope.$on('token:asigned', function(event, data) {
+                    scope.cargarMisReservas();
+                });
+                
+                scope.$watch('usuarioId', function() {
+                    scope.cargarMisReservas();
                 });
 
-                if(AppAuth.id != null && AppAuth.status==true) {
-                    $scope.cargarMisReservas();
+                if(scope.usuarioId != null) {
+                    scope.cargarMisReservas();
                 }
             }
         }

@@ -11,7 +11,7 @@ paddleApp.config(['$routeProvider', '$httpProvider',
 	      templateUrl: 'views/pista',
 	      controller: 'CourtController'
 	  }).
-	  when('/app/users/login', {
+	  when('/app/users/login/:modo?', {
 	      templateUrl: 'views/login',
 	      controller: 'UserController'
 	  }).
@@ -83,9 +83,12 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 	$scope.AppAuth = AppAuth;
 	
 	$scope.logout = function() {
-		AppAuth.status = false;
-		$cookies.putObject("AppAuth", AppAuth);
-		$location.path("#/app/home");
+		$.get("/users/logout", function() {
+			AppAuth.status = false;
+			$cookies.putObject("AppAuth", AppAuth);
+			$location.path("#/app/home");
+			$location.reload();
+		});
 	};
 
 	if(AppAuth.status == true) {

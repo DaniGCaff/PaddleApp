@@ -70,4 +70,9 @@
       <button ng-show="operacion != 'modify' && operacion != 'create'" ng-click="delete()" formnovalidate class="waves-effect waves-light btn">Aceptar</button>
   </div>
   </form>
+
+    <section ng-show="AppAuth.roles.indexOf('ROLE_ADMIN') > -1" ng-controller="ReservaController">
+        <link rel="stylesheet" href="../css/datatable.css">
+        <crude-misreservas usuario-id="userId"></crude-misreservas>
+    </section>
 </div>

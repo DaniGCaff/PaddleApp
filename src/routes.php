@@ -8,6 +8,9 @@ $app->get('/', function($request, $response, $args) use ($app) {
 
 $app->get('/views/{view}', function($request, $response, $args) use ($app) {
     if(array_key_exists('payload', $_SESSION) || $args['view'] === "login" || $args['view'] === "user" || $args['view'] === "index" || $args['view'] === "home"){
+        if($args['view'] == "login" && array_key_exists('payload', $_SESSION)) {
+            $args['view'] = "home";
+        }
         $response = $app->getContainer()->get("view")->render($response, $args['view'] . ".phtml");
     } else {
         $response = $response->withStatus(404);
@@ -42,7 +45,12 @@ $app->get('/users/me', function($request, $response, $args) use($app) {
 	return $response->withJson($responseData);
 });
 
-$app->post('/users/login', function($request, $response, $args) use($app) {
+$app->get('/users/logout', function($request, $response, $args) use($app) {
+    session_destroy();
+    return $response;
+});
+
+$app->post('/users/login[/{modo}]', function($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'POST /users/login' route");
 
@@ -52,6 +60,17 @@ $app->post('/users/login', function($request, $response, $args) use($app) {
         if($user != null) {
             $roles = $user->getRoles->lists('role');
 
+            if(array_key_exists("modo", $args)) {
+                if(!$roles->contains("ROLE_ADMIN")) {
+                    return $response->withStatus(404);
+                } 
+            }
+            else {
+                if($roles->contains("ROLE_ADMIN")) {
+                    $roles = array("ROLE_USER");
+                }
+            }
+            
             $now = new DateTime();
             $future = new DateTime("now +2 hours");
 
@@ -249,12 +268,14 @@ $app->put('/users/{userId}', function ($request, $response, $args) use($app) {
 $app->delete('/users/{userId}', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'DELETE /users/{userId}' route");
-    
+
+
     if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
         return $response->withStatus(403);
 
     $user = User::find($args['userId']);
     if($user != null) {
+        Reserva::where("userId", "=", $args['userId'])->delete();
         $user->delete();
         $newResponse = $response->withStatus(204);
     } else {
@@ -399,6 +420,7 @@ $app->delete('/courts/{courtId}', function ($request, $response, $args) use($app
     if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
         return $response->withStatus(403);
 
+    Reserva::where("courtId", "=", $args['courtId'])->delete();
     $court = Court::find($args['courtId']);
     if($court != null) {
         $court->delete();
@@ -486,9 +508,9 @@ $app->delete('/reservas/{reservaId}', function ($request, $response, $args) use(
     if(!in_array("ROLE_ADMIN", $app->getContainer()->get("token")->roles))
         return $response->withStatus(403);
 
-    $user = User::find($args['userId']);
-    if($user != null) {
-        $user->delete();
+    $reserva = Reserva::find($args['reservaId']);
+    if($reserva != null) {
+        $reserva->delete();
         $newResponse = $response->withStatus(204);
     } else {
         $newResponse = $response->withStatus(404);
