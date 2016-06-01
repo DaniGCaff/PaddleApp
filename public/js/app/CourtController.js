@@ -1,3 +1,10 @@
+/*
+
+En este fichero se declaran el controlador de que gestiona la alta, baja y modificaciones de las pistas.
+Por cohesión se declara las directivas asociadas a las pistas (crudePistas y listaPistas).
+
+*/
+
 angular.module('appControllers')
     .controller('CourtController', function($http, $location, $scope, AppAuth, $cookies, $routeParams, PaddleService) {
         $scope.AppAuth = AppAuth;

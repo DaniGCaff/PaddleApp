@@ -1,3 +1,14 @@
+/*
+
+En este fichero se declara el controlador que gestiona las altas y las bajas de reservas. Además 
+se declaran las directivas que están asociadas: crudeReserva y misReservas. El primero lista todos los 
+datos sin filtrar por usuario, y la segunda directiva permite listar solo las reservas de un jugador.
+
+También se declara el filtro de fecha minima. Los filtros son entidades de Angular que, como su nombre indica,
+nos permiten filtrar datos dentro de una colección.
+
+*/
+
 angular.module('appControllers')
     .controller('ReservaController', function($http, $location, $scope, $rootScope, AppAuth, $cookies, $routeParams, PaddleService) {
         $scope.AppAuth = AppAuth;

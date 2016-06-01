@@ -1,3 +1,10 @@
+/*
+
+En este fichero se declara el controlador que gestiona altas, bajas, y modificaciones de los usuarios.
+Por cohesión, se claran posteriormente las directivas que se asocian con los usuarios (crudeUsuarios).
+
+*/
+
 angular.module('appControllers')
 .controller('UserController', function($http, $location, $scope, AppAuth, $cookies, $routeParams) {
 	$scope.AppAuth = AppAuth;

@@ -1,3 +1,17 @@
+/*
+
+Los servicios son una parte importante de Angular. En la práctica son singletons que pueden ser declarados entre las
+dependencias de los controladores del sistema. En este fichero solo se declara el servicio que coordina todo el proceso
+de reservación de una pista, es una refactorización de la segunda entrega de TDW.
+
+Este servicios es el que en ultima instancia se comunica con el backend para registrar una reserva, y tambien el que obtiene 
+los datos de una reserva y los guarda en una cookie. 
+
+Este servicio tiene como tarea principal, confeccionar un unico objeto como 
+recopilación de la información de tres controladores: ReservaController, UserController y PlayerController:
+
+*/
+
 angular.module('appControllers')
 	.factory('PaddleService', ['$rootScope', '$cookies', '$http', '$location', 'AppAuth', function($rootScope, $cookies, $http, $location, AppAuth) {
 

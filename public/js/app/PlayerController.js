@@ -1,3 +1,8 @@
+/*
+PlayerController es el controlador que gestiona las altas, bajas y modificaciones de la lista de jugadores de la 
+pantalla de reservas. Por cohesión se declara la única directiva que está asociada: listaPlayers.
+*/
+
 angular.module('appControllers')
     .controller('PlayerController', function($http, $location, $scope, AppAuth, $cookies, $routeParams, PaddleService, Notificaciones) {
         $scope.PaddleService = PaddleService;
@@ -33,9 +38,11 @@ angular.module('appControllers')
 
         $scope.allocatePlayer = function() {
             if($scope.players[$scope.selectedPlayer-1] != null) {
-                var playerName = $scope.players[$scope.selectedPlayer-1].name;
-                $scope.players[$scope.selectedPlayer - 1].estado = 1;
-                PaddleService.allocatePlayer($scope.selectedPlayer, playerName, $scope.courtId, $scope.position);
+                if(PaddleService.courts[$scope.courtId - 1].players[$scope.position -1].id == 0) {
+                    var playerName = $scope.players[$scope.selectedPlayer-1].name;
+                    $scope.players[$scope.selectedPlayer - 1].estado = 1;
+                    PaddleService.allocatePlayer($scope.selectedPlayer, playerName, $scope.courtId, $scope.position);
+                }
             }
         };
 

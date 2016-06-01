@@ -1,6 +1,10 @@
 <?php
 // Routes
 
+/*
+Las primeras dos rutas sirven para dar soporte a todo el entramado de vistas que servimos con Angular.
+*/
+
 $app->get('/', function($request, $response, $args) use ($app) {
     $response = $app->getContainer()->get("view")->render($response, "index.phtml");
     return $response;
@@ -19,6 +23,13 @@ $app->get('/views/{view}', function($request, $response, $args) use ($app) {
 });
 
 // <editor-fold desc="RUTAS DE /users">
+
+/*
+
+Las rutas /users/check, /users/me, /users/login y /users/logout son una ampliación de la API de usuarios para 
+dar soporte al requisito de sesiones expuesto en el enunciado de la práctica.
+
+*/
 
 $app->post('/users/check', function($request, $response, $args) use($app) {
     $parsedBody = $request->getParsedBody();
@@ -101,6 +112,11 @@ $app->post('/users/login[/{modo}]', function($request, $response, $args) use($ap
     }
 
 });
+
+/*
+La API de /users a penas ha sufrido cambios. La funcionalidad ha sido aprovechada de la tercera práctica de TDW (PHP)
+
+*/
 
 $app->get('/users/{userId}', function ($request, $response, $args) use($app) {
     // Sample log message
@@ -294,7 +310,16 @@ $app->options('/users', function ($request, $response, $args) {
 
 // </editor-fold>
 
+
 // <editor-fold desc="RUTAS DE /courts">
+
+/*
+
+A continuación se definen todas las rutas de la API de /courts (pistas). Ademas de tener las funciones CRUDE de una api normal,
+presenta una ruta que nos permite consultar las reservas existentes en una franja y hora determinadas, segun que acción estemos realizando.
+
+*/
+
 $app->get('/courts/{courtId}', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'GET /courts/{courtId}' route");
@@ -433,6 +458,13 @@ $app->delete('/courts/{courtId}', function ($request, $response, $args) use($app
 // </editor-fold>
 
 // <editor-fold desc="RUTAS DE /reservas">
+
+/*
+
+Finalmente se expone las rutas de la API de reservas. Da soporte a las funciones CRUDE comunes.
+
+*/
+
 $app->get('/reservas[/user/{userId}]', function ($request, $response, $args) use($app) {
     // Sample log message
     $this->logger->info("PADDLE APP - 'GET /reservas' route");

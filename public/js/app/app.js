@@ -1,3 +1,15 @@
+/*
+
+Punto de entrada a los scripts de Angular.
+
+Se instancia el objeto app y se declaran sus dependencias, se configuran las rutas.
+Posteriormente se declara el modulo que nosotros utilizaremos mayoritariamente "paddleControllers"
+Al que se asociaran todos los controladores, directivas y filtros de AngularJS utilizados
+a lo largo y ancho del proyecto.
+
+*/
+
+
 var paddleApp = angular.module('paddleApp', ['ngRoute', 'appControllers', 'ngCookies']);
 
 paddleApp.config(['$routeProvider', '$httpProvider',
@@ -40,6 +52,12 @@ paddleApp.config(['$routeProvider', '$httpProvider',
   }
 ]);
 
+/*
+
+Este servicio nos permite gestionar todos los temas de sesión a través de todos los controladores de la app.
+
+*/
+
 paddleApp.factory('AppAuth', function($rootScope, $http, $cookies) {
 	var authenticated = {status: false, username: "", roles: [], token: ""};
 
@@ -79,6 +97,9 @@ paddleApp.factory('Notificaciones', function() {
 	return this;
 })
 
+// Este es un controlador auxiliar que se encarga de mostrar las opciones correspondientes en la barra de navegación a partir de
+// los datos de la sesión (AppAuth)
+
 paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $location, $http) {
 	$scope.AppAuth = AppAuth;
 	
@@ -107,6 +128,14 @@ paddleApp.controller('SessionController', function($scope, AppAuth, $cookies, $l
 });
 
 angular.module('appControllers', ['ngCookies']);
+
+/*
+
+Dentro de la aplicacion se reutilizan muchas funcionalidades, las cuales he intentado agrupar aquí.
+Se tratan de las directivas, entidades de AngularJS, que segun las buenas practicas, se encargan de 
+realizar todas las operaciones sobre el DOM (con el fin de que los controladores solo realicen funciones lógicas)
+
+*/
 
 angular.module('appControllers')
 	.directive('ordenable', function() {
