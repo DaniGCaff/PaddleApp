@@ -77,7 +77,6 @@ angular.module('appControllers')
     };
         
     service.cargarDatos = function() {
-        if($cookies.getObject('reserva') == null || $cookies.getObject('courts')) return;
         
         service.reserva = $cookies.getObject('reserva');
         service.courts = $cookies.getObject('courts');
