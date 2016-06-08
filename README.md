@@ -1,8 +1,9 @@
-# Slim Framework 3 Skeleton Application
+# PaddleApp
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+PaddleApp is a web oriented app developed during my last university year. It consist of a front and a backend. 
+Backend has three REST APIs for users, courts and books management. It is written in PHP and Slim Framework (some kind of Laravel lite distribution)
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+Frontend is written in javascript, and is supported by AngularJS. AngularJS is a little bit complex, so if you need help, dont hesistate to contact me. I will be glad to help you ;-)
 
 ## Install the Application
 
